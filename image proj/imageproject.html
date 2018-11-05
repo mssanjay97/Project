@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value -->
+<html class="js wf-futurapt-n4-active wf-futurapt-n5-active wf-museoslab-n7-active wf-futurapt-i5-active wf-futurapt-n7-active wf-futurapt-i7-active wf-futurapt-i4-active wf-automate-n7-active wf-minionprosubhead-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>how to define the red, green, and blue Threshold value? - 
+MATLAB Answers - MATLAB Central</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="canonical" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value">
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript" async="" src="./imageproject_files/ahy.js.download"></script><script src="./imageproject_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js.download"></script><script src="./imageproject_files/mbox-contents-95c6a4d9c82a8d20476522984666120b54192e9b.js.download"></script>
+<!-- END Adobe DTM -->
+<link href="./imageproject_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./imageproject_files/site6.css" rel="stylesheet" type="text/css">
+<link href="./imageproject_files/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="./imageproject_files/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="./imageproject_files/site6_sm+xs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="./imageproject_files/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="./imageproject_files/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_ie8.css" rel="stylesheet" type="text/css">
+<script src="/includes_content/responsive/scripts/bootstrap/html5shiv-printshiv.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/respond.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/site6_ie9.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<link href="./imageproject_files/site6_print.css" rel="stylesheet" type="text/css" media="print">
+<link rel="stylesheet" href="./imageproject_files/mlc.css" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/templates/mlc_ie8.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/templates/mlc_ie9.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<link rel="stylesheet" href="./imageproject_files/answers.css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/apps/answers/answers_ie8.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/apps/answers/answers_ie9.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<script src="./imageproject_files/jquery-latest.js.download"></script>
+<script src="./imageproject_files/jquery.mobile.custom.min.js.download"></script>
+<script src="./imageproject_files/bootstrap.min.js.download"></script>
+<script src="./imageproject_files/global.js.download"></script>
+<script src="./imageproject_files/anchor.js.download"></script>
+<script src="./imageproject_files/xvy5baa.js.download"></script>
+<style type="text/css">.tk-museo-slab{font-family:"museo-slab",serif;}.tk-futura-pt{font-family:"futura-pt","Arial","Helvetica",sans-serif;}.tk-automate{font-family:"automate",sans-serif;}.tk-minion-pro-subhead{font-family:"minion-pro-subhead",serif;}</style><style type="text/css">@font-face{font-family:museo-slab;src:url(https://fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-d.woff) format("woff"),url(https://fonts.mathworks.com/k/0e548aec395bd99926a27577e842e818def6ba83-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-d.woff) format("woff"),url(https://fonts.mathworks.com/k/87868ea7533b245fa343d5fd2e370ee0daee1db8-a.otf) format("opentype");font-weight:500;font-style:normal;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-d.woff) format("woff"),url(https://fonts.mathworks.com/k/fa63f4ee95571fac0c3fde550489d0874f44e7d1-a.otf) format("opentype");font-weight:500;font-style:italic;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-d.woff) format("woff"),url(https://fonts.mathworks.com/k/78f589bb61056c7dc2c42601e2fd59aa96941141-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-d.woff) format("woff"),url(https://fonts.mathworks.com/k/599bfc6908295758da16f495738fa5c76ccf9542-a.otf) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-d.woff) format("woff"),url(https://fonts.mathworks.com/k/0ffa5e8c8eb076cc21ede9987250dfa4f2af4438-a.otf) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:futura-pt;src:url(https://fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-d.woff) format("woff"),url(https://fonts.mathworks.com/k/3f4899217323502feaae94c179311206f731a52e-a.otf) format("opentype");font-weight:400;font-style:italic;}@font-face{font-family:automate;src:url(https://fonts.mathworks.com/k/6cb6312a9a5b058587f363ab4d24071441d52748-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/6cb6312a9a5b058587f363ab4d24071441d52748-d.woff) format("woff"),url(https://fonts.mathworks.com/k/6cb6312a9a5b058587f363ab4d24071441d52748-a.otf) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:minion-pro-subhead;src:url(https://fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-l.woff2) format("woff2"),url(https://fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-d.woff) format("woff"),url(https://fonts.mathworks.com/k/d4d1694195e6776198a56670eb3252a367c04b04-a.otf) format("opentype");font-weight:400;font-style:normal;}</style><script>try{Typekit.load();}catch(e){}</script>
+  <meta name="description" content="how to define the red, green, and blue Threshold... Learn more about image segmentation, color extraction ">
+
+
+<meta content="You may have unsaved changes to a question, answer, or comment." name="confirm-close">
+<meta content="authenticity_token" name="csrf-param">
+<meta content="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es=" name="csrf-token">
+
+
+<link href="./imageproject_files/application.css" media="screen" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript">
+  // CSS hook -- add class="js" to the <html> element
+  document.documentElement.className = document.documentElement.className === '' ? 'js' : document.documentElement.className + ' js';
+</script>
+<script src="./imageproject_files/application.js.download" type="text/javascript"></script>
+  <script src="./imageproject_files/antlr3-all.min.js.download" type="text/javascript"></script>
+  <script src="./imageproject_files/jquery.iframe-transport.js.download" type="text/javascript"></script>
+  <script src="./imageproject_files/jquery.fileupload.js.download" type="text/javascript"></script>
+  <script src="./imageproject_files/jquery.placeholder.js.download" type="text/javascript"></script>
+  <script src="./imageproject_files/matlabmarkup.combined.js.download" type="text/javascript"></script>
+
+
+<link href="./imageproject_files/application(1).css" media="all" rel="stylesheet" type="text/css">
+<link href="./imageproject_files/mw_font.css" media="all" rel="stylesheet" type="text/css">
+<script src="./imageproject_files/application.js(1).download" type="text/javascript"></script>
+<link href="./imageproject_files/mlc6.css" rel="stylesheet" type="text/css">
+
+
+
+<script type="text/javascript" src="./imageproject_files/jquery.cookie.js.download"></script>
+<script type="text/javascript">
+(function() {
+// Check if cookies are enabled
+function cookiesEnabled() {
+return $.cookie('check', 'valid', { expires: 1 }) && $.cookie('check') == 'valid';
+}
+// Set the language of the domain and redirect to the domain
+function setDomainLanguage(language) {
+if($.cookie("lang") != null) {
+$.cookie("lang", null, { path: '/', domain: 'ch.mathworks.com'});
+}
+$.cookie("lang", 'lang=' + language, {path: '/', expires: 365, domain: 'ch.mathworks.com'});
+}
+// do not display the domain selector if querystring is not present
+// or if query string has nocookie value
+// or if cookies are disabled
+var displayDomainSelector = true;
+function detectDomain() {
+var queries = {};
+$.each(document.location.search.substr(1).split('&'), function(c,q){
+if(q != undefined && q != "") {
+var i = q.split('=');
+if(i[1] != undefined) {
+queries[i[0].toString()] = i[1].toString();
+}
+}
+});
+var requested_domain = (queries['requestedDomain'] != undefined) ? queries['requestedDomain'] : "";
+var nocookie = (queries['nocookie'] != undefined) ? queries['nocookie'] : "";
+var client = (queries['client'] != undefined) ? queries['client'] : "";
+if(requested_domain == "" || nocookie == "true" || !cookiesEnabled() || client == "addons" || window.overrideDomainSelector) {
+displayDomainSelector = false;
+}
+}
+detectDomain();
+function extractDomain(url) {
+var domain;
+//find & remove protocol (http, ftp, etc.) and get domain
+if (url.indexOf("://") > -1) {
+domain = url.split('/')[2];
+} else {
+domain = url.split('/')[0];
+}
+//find & remove port number
+domain = domain.split(':')[0];
+return domain;
+}
+function getDomainContent(returnContent) {
+// Get the location information from the marketing site
+$.ajax({
+url : "/includes_content/domainSelect/location.html",
+type : "get",
+async: false,
+success : function(data) {
+$("#location_content").html(data);
+var button_link = $("#button_link").text();
+var current_location = $("#current_location").text();
+var location_key = $("#location_key").text();
+//Set the location in the text and button
+$(".text_location").text(current_location);
+$("#domain_select_button").text("Select " + current_location);
+// if the current location is different from the browser location, update the button functionality
+var browser_domain = extractDomain(window.location.href);
+if(button_link.indexOf(browser_domain) == -1) {
+// Get the current page link from the links within the selector
+new_button_link = $("." + location_key).attr("href");
+$("#domain_select_button").attr("href",new_button_link);
+$("#domain_select_button").removeAttr("data-dismiss");
+}
+}
+});
+if(returnContent) {
+return $('#country-unselected').html();
+}
+}
+$(document).ready(function () {
+//setLocation();
+// determine if links need to be rewritten
+if ( $( "#country-unselected li a" ).length ) {
+$("#country-unselected li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+if ( $( "li.headernav_login > a" ).length ) {
+var login_url = $("li.headernav_login > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.headernav_login > a").attr("href", login_url);
+}
+if ( $( "li.mwa-nav_logout > a" ).length ) {
+var login_url = $("li.mwa-nav_logout > a").attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$("li.mwa-nav_logout > a").attr("href", login_url);
+}
+if ( $( ".mwa-nav li a" ).length ) {
+$(".mwa-nav li a").each(function() {
+var link_url = $(this).attr("href").replace(/%26requestedDomain(%3D[^%26|&]*)?|requestedDomain(%3D[^%26|&]*)?(%26)?/, "");
+$(this).attr("href", link_url);
+});
+}
+$('body').on('click','.footernav_country a',function(){
+getDomainContent(false);
+});
+// set the click function for Switzerland/English link
+$('body').on('click','#swiss_english',function(){
+setDomainLanguage('en');
+});
+// set the click function for Switzerland/French link
+$('body').on('click','#swiss_french',function(){
+setDomainLanguage('fr');
+});
+// set the click function for the Switzerland/German link
+$('body').on('click','#swiss_german',function(){
+setDomainLanguage('de');
+});
+});
+// onload functionality for the selector
+$(document).ready(function () {
+if(displayDomainSelector) {
+getDomainContent(false);
+$('#country-unselected').modal('show');
+}
+});
+})(jQuery);
+</script>
+<script src="./imageproject_files/satellite-5480c4083639370018670600.js.download"></script><script src="./imageproject_files/s-code-contents-73da148cb454c4f6e395aa8df704854c99540662.js.download"></script></head>
+  
+<body id="responsive_b" class="mlc"><div class="mboxDefault" id="mbox-target-global-mbox-c4927a7a54e146828e47472bfd78b037" style="visibility: hidden; display: none;"></div>
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+<a href="http://in.mathworks.com/?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="./imageproject_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="headernav_login dropdown">
+    <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#" class="dropdown-toggle" data-toggle="dropdown">
+      sanjay ms <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" id="mwa-nav">
+      <li class="mwa-nav_account">
+        <a href="https://in.mathworks.com/mwaccount/" id="edit_profile_link">My Account</a>
+      </li>
+      <li class="mwa-nav_associate">
+        <a href="https://in.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc" id="associate_license_link">Associate License</a>
+      </li>
+      <li class="mwa-nav_account">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/my_profile">My Community Profile</a>
+      </li>
+      <li class="mwa-nav_logout">
+        <a href="https://in.mathworks.com/login/logout?uri=https%3A%2F%2Fin.mathworks.com%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value">Log Out</a>
+      </li>
+  	</ul>
+</li>
+
+<li class="topnav_products "><a href="http://in.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://in.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://in.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://in.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://in.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://in.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+<li class="headernav_contact"><a href="http://in.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://in.mathworks.com/store?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_contact"><a href="http://in.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_cntus">Contact Us</a></li>
+<li class="headernav_store"><a href="http://in.mathworks.com/store?s_cid=store_top_nav&amp;s_tid=gn_store">How To Buy</a></li>
+<li class="headernav_login dropdown">
+    <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#" class="dropdown-toggle" data-toggle="dropdown">
+      sanjay ms <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" id="mwa-nav">
+      <li class="mwa-nav_account">
+        <a href="https://in.mathworks.com/mwaccount/" id="edit_profile_link">My Account</a>
+      </li>
+      <li class="mwa-nav_associate">
+        <a href="https://in.mathworks.com/licensecenter/workflows/associate_license?s_tid=gn_aslc" id="associate_license_link">Associate License</a>
+      </li>
+      <li class="mwa-nav_account">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/my_profile">My Community Profile</a>
+      </li>
+      <li class="mwa-nav_logout">
+        <a href="https://in.mathworks.com/login/logout?uri=https%3A%2F%2Fin.mathworks.com%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value">Log Out</a>
+      </li>
+  	</ul>
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="http://in.mathworks.com/?s_tid=gn_logo" class="svg_link pull-left">
+<img src="./imageproject_files/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="http://in.mathworks.com/products.html?s_tid=gn_ps">Products</a></li>
+<li class="topnav_solutions "><a href="http://in.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="http://in.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="http://in.mathworks.com/support/?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="http://in.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="http://in.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container includes_subnav affix">
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container">
+<div class="row" id="mobile_search_row">
+<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7" id="mobile_search">
+<div class="search_nested_content_container">
+<div id="search_scope_answers" class="collapse in">
+<form id="answerssearch_form" name="answerssearch_form" method="get" data-language="en" action="https://in.mathworks.com/matlabcentral/answers/">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search Answers</label>
+<input type="text" class="form-control conjoined_search" autocomplete="off" name="term" placeholder="Search Answers" id="answerssearch" value="">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Answers</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<!-- <li data-toggle="collapse" data-target="#search_scope_answers" class="answers_search_scope_trigger"><a href="#">Answers</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_support" class="answers_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">Support</a></li>
+<li data-toggle="collapse" data-target="#search_scope_site" class="answers_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">MathWorks</a></li>
+</ul>
+<script>
+$(".answers_search_scope_trigger").click(function() {
+$("#search_scope_answers").removeClass("in");
+$("#supportsearch").val($("#answerssearch").val());
+$("#query").val($("#answerssearch").val());
+});
+</script>
+<button type="submit" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_support" class="collapse">
+<form id="supportsearch_form" name="supportsearch_form" method="get" data-language="en" action="https://in.mathworks.com/support/search_results.html">
+<div class="input-group tokenized_search_field">
+<label class="sr-only">Search Support</label>
+<input type="text" class="form-control conjoined_search" autocomplete="off" name="q" placeholder="Search Support" id="supportsearch">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_answers" class="support_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">Answers</a></li>
+<!-- <li data-toggle="collapse" data-target="#search_scope_support" class="support_search_scope_trigger"><a href="#">Support</a></li> -->
+<li data-toggle="collapse" data-target="#search_scope_site" class="support_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">MathWorks</a></li>
+</ul>
+<script>
+$(".support_search_scope_trigger").click(function() {
+$("#search_scope_support").removeClass("in");
+$("#answerssearch").val($("#supportsearch").val());
+$("#query").val($("#supportsearch").val());
+});
+</script>
+<button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+<div id="search_scope_site" class="collapse">
+<form name="search" id="site_search" class="site_search" action="https://in.mathworks.com/search/site_search.html" method="get">
+<div class="input-group">
+<label class="sr-only">Search MathWorks.com</label>
+<input type="hidden" name="c[]" value="entire_site">
+<input type="text" name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \="">
+<div class="input-group-btn">
+<button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+<ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+<li data-toggle="collapse" data-target="#search_scope_answers" class="site_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">Answers</a></li>
+<li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#">Support</a></li>
+<!--<li data-toggle="collapse" data-target="#search_scope_site" class="site_search_scope_trigger"><a href="#">MathWorks</a></li>-->
+</ul>
+<script>
+$(".site_search_scope_trigger").click(function() {
+$("#search_scope_site").removeClass("in");
+$("#answerssearch").val($("#query").val());
+$("#supportsearch").val($("#query").val());
+});
+</script>
+<button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+<div class="col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5 has_horizontal_local_nav" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title add_cursor_pointer">
+<p class="h1">MATLAB Answers<sup>™</sup></p>
+</div>
+<button type="button" class="navbar-toggle collapsed subnav visible-xs visible-sm" data-toggle="collapse" data-target=".mobile_subnav_content"> <span class="icon-arrow-down icon_24"></span> </button>
+</div>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button>
+</div>
+</div>
+<script>
+$(".section_header_title").click(function(){
+$(window.location).attr('href', '/matlabcentral/answers/index');
+});
+</script>
+<!-- Section Header: End -->
+<!-- Mobile Local Nav: Start -->
+<div class="row visible-xs visible-sm" id="mobile_subnav">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse mobile_subnav_content">
+<ul class="nav navbar-nav subnav">
+<li class="dropdown">
+  <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="topnav_about_mlc"><a href="https://in.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community Home</a></li>
+    <li class="topnav_answers"><a href="https://in.mathworks.com/matlabcentral/answers/index/?s_tid=gn_mlc_an">MATLAB Answers</a></li>
+    <li class="topnav_fileexchange"><a href="https://in.mathworks.com/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">File Exchange</a></li>
+    <li class="topnav_cody"><a href="https://in.mathworks.com/matlabcentral/cody/?s_tid=gn_mlc_cody">Cody</a></li>
+    <li class="topnav_blogs"><a href="http://blogs.mathworks.com/?s_tid=gn_mlc_blg">Blogs</a></li>
+    <li class="topnav_newsreader"><a href="https://in.mathworks.com/matlabcentral/newsreader/?s_tid=gn_mlc_ng">Newsreader</a></li>
+    <li class="topnav_linkexchange"><a href="https://in.mathworks.com/matlabcentral/linkexchange/?s_tid=gn_mlc_lx">Link Exchange</a></li>
+    <li class="topnav_thingspeak"><a href="https://in.mathworks.com/products/thingspeak.html?s_tid=gn_mlc_TS">ThingSpeak</a></li>
+  </ul>
+</li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/index?s_tid=al" id="landing_link">Home</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/questions/new/?s_tid=gn_mlc_ans_ask" id="ask_question_link" rel="nofollow">Ask</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/?term=status%3Aunanswered&amp;s_tid=gn_mlc_ans_ans" id="answer_question_link" rel="nofollow">Answer</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/?s_tid=gn_mlc_ans_ans" id="questions_link" rel="nofollow">Browse</a></li>
+<li>
+	<a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" data-toggle="dropdown" data-target="#" id="more_link">More<span class="caret"></span></a>
+	<ul class="dropdown-menu">
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/contributors/?s_tid=gn_mlc_ans_cnt" id="contributors_link">Contributors</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/activities?s_tid=gn_mlc_ans_rec" id="activity_link" rel="nofollow">Recent Activity</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/flagged?s_tid=gn_mlc_ans_FC" id="flags_link" rel="nofollow">Flagged Content</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/manage-spam" id="spam_link" rel="nofollow">Flagged as Spam</a></li>
+	</ul>
+</li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/help?s_tid=gn_mlc_ans_hlp" id="help_link" rel="nofollow">Help</a></li>
+
+</ul>
+</div>
+</div>
+</div>
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav hidden-xs hidden-sm">
+<div class="horizontal_nav_container">
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-lg-9 hidden-xs hidden-sm">
+<nav class="navbar navbar-default" role="navigation" id="subnav">
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+  <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="topnav_about_mlc"><a href="https://in.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community Home</a></li>
+    <li class="topnav_answers"><a href="https://in.mathworks.com/matlabcentral/answers/index/?s_tid=gn_mlc_an">MATLAB Answers</a></li>
+    <li class="topnav_fileexchange"><a href="https://in.mathworks.com/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">File Exchange</a></li>
+    <li class="topnav_cody"><a href="https://in.mathworks.com/matlabcentral/cody/?s_tid=gn_mlc_cody">Cody</a></li>
+    <li class="topnav_blogs"><a href="http://blogs.mathworks.com/?s_tid=gn_mlc_blg">Blogs</a></li>
+    <li class="topnav_newsreader"><a href="https://in.mathworks.com/matlabcentral/newsreader/?s_tid=gn_mlc_ng">Newsreader</a></li>
+    <li class="topnav_linkexchange"><a href="https://in.mathworks.com/matlabcentral/linkexchange/?s_tid=gn_mlc_lx">Link Exchange</a></li>
+    <li class="topnav_thingspeak"><a href="https://in.mathworks.com/products/thingspeak.html?s_tid=gn_mlc_TS">ThingSpeak</a></li>
+  </ul>
+</li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/index?s_tid=al" id="landing_link">Home</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/questions/new/?s_tid=gn_mlc_ans_ask" id="ask_question_link" rel="nofollow">Ask</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/?term=status%3Aunanswered&amp;s_tid=gn_mlc_ans_ans" id="answer_question_link" rel="nofollow">Answer</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/?s_tid=gn_mlc_ans_ans" id="questions_link" rel="nofollow">Browse</a></li>
+<li>
+	<a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" data-toggle="dropdown" data-target="#" id="more_link">More<span class="caret"></span></a>
+	<ul class="dropdown-menu">
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/contributors/?s_tid=gn_mlc_ans_cnt" id="contributors_link">Contributors</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/activities?s_tid=gn_mlc_ans_rec" id="activity_link" rel="nofollow">Recent Activity</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/flagged?s_tid=gn_mlc_ans_FC" id="flags_link" rel="nofollow">Flagged Content</a></li>
+		<li><a href="https://in.mathworks.com/matlabcentral/answers/manage-spam" id="spam_link" rel="nofollow">Flagged as Spam</a></li>
+	</ul>
+</li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/help?s_tid=gn_mlc_ans_hlp" id="help_link" rel="nofollow">Help</a></li>
+
+</ul>
+</div>
+</nav>
+</div>
+<div class="col-md-4 col-lg-3 hidden-xs hidden-sm">
+<div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="https://in.mathworks.com/programs/trials/trial_request.html?eventid=56763&amp;prodcode=ML&amp;s_iid=mlcans_trial_mlc_cta1" class="icon-download">Trial software</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+    
+
+    
+
+  <div class="content_container">
+    <div class="container">        
+      <div class="row">
+        <div class="col-xs-12">
+            
+
+
+
+
+
+
+
+     
+    
+
+
+
+		
+<script src="./imageproject_files/MwRelatedContent.js.download"></script>
+<script src="./imageproject_files/related.js.download"></script>
+
+
+
+
+
+<div class="row">
+	<div class="col-xs-12 col-sm-9">
+		<div class="panel panel-default panel_color_default panel_color_fill">
+		 	<div class="panel-body">
+        <div class="row small">
+					<div class="col-xs-12 col-sm-12 col-md-2">
+							<div class="col-xs-4 col-sm-4 col-md-12">
+								<a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha" class="author_inline" data-cp-link-id="1"><img alt="Ariff pasha" class="avatar-img" src="./imageproject_files/profilepic_default.gif"></a>
+<div class="profile mlc_author_popover" data-cp-popup-id="1" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha">Ariff pasha <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha">
+            <img src="./imageproject_files/profilepic_default.gif">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A152187"><span property="question_count">5 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A152187"><span property="answer_count">0 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">0 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 0</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 tools-no-paddings">
+								<div class="question-tools">
+									<div class="col-xs-12 tools_spacer"> </div>
+									<div id="votes_question_259093" class="vote col-xs-12 col-sm-3 col-md-12">
+										<form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/votes" class="vote-form show-modal-on-error" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+											<input name="vote[votable_type]" type="hidden" value="Question"><input name="vote[votable_id]" type="hidden" value="259093">
+											<button class="off btn btn-link" title="Add your vote" type="submit"><span class="icon-like vote_icon"></span><span class="vote_prompt">Vote</span></button><div class="vote_count"><span class="pipe"></span>0</div>
+</form>									</div>
+									<div class="col-xs-12 visible-xs tools_spacer"> </div>
+
+									<div class="flag col-xs-3 col-sm-2 col-md-12" id="toggle_flag_question_259093">
+  <a href="https://in.mathworks.com/matlabcentral/answers/flagged/new?flaggable_id=259093&amp;flaggable_type=Question" data-toggle="#flag_question_259093" rel="nofollow"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Flag </a>
+
+</div>
+<form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/flagged" class="flagging-form show-modal-on-error hidden small" data-dialog="true" data-remote="true" id="flag_question_259093" method="post" title="Flag with care"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+  <input name="flagging[flaggable_id]" type="hidden" value="259093">
+  <input name="flagging[flaggable_type]" type="hidden" value="Question">
+
+    <p>A flag is a request to an editor to review and potentially close or delete content on MATLAB Answers. Include the reason for your flag below.</p>
+    <div class="radio">
+      <input checked="checked" id="flag_id_1" name="flag_id" type="radio" value="1">
+      <label for="flag_question_259093_flag_1">Not appropriate for MATLAB Answers</label>
+      <div class="hover">
+        <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value"><span class="icon-mw-help icon_16"></span></a>
+        <div class="visually-hidden"><p>Inappropriate flags an invalid question. These questions lack any of the following:</p><ul><li>Detail for ensuring a proper response</li><li>Sufficient work or thought on the part of the requester (do-it-for-me request)</li><li>Usefulness to the community</li></ul></div>
+      </div>
+    </div>
+    <div class="radio">
+      <input checked="checked" id="flag_id_2" name="flag_id" type="radio" value="2">
+      <label for="flag_question_259093_flag_2">Spam</label>
+      <div class="hover">
+        <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value"><span class="icon-mw-help icon_16"></span></a>
+        <div class="visually-hidden"><p>This question is spam.</p></div>
+      </div>
+    </div>
+    <div class="radio">
+      <input checked="checked" id="flag_id_3" name="flag_id" type="radio" value="3">
+      <label for="flag_question_259093_flag_3">Unclear</label>
+      <div class="hover">
+        <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value"><span class="icon-mw-help icon_16"></span></a>
+        <div class="visually-hidden"><p>Unclear flags a question requiring more information. These questions are illogical, lack detail, or may not be a question.</p><p>Unclear questions can be reopened within 10 days of closure. Thereafter, unclear questions become permanently deleted.</p></div>
+      </div>
+    </div>
+    <div>
+      <label for="flagging_message">Provide additional information about your flag below<span class="tip">Your message will be publicly visible.</span></label>
+      <textarea class="form-control" cols="40" id="flagging_message" name="flagging[message]" rows="20"></textarea>
+    </div>
+    <div class="submit">
+      <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm" data-toggle="#flag_question_259093" rel="nofollow">Cancel</a>
+      <input class="btn btn_secondary btn-sm" data-disable-with="Saving…" type="submit" value="Submit">
+    </div>
+</form>
+
+
+
+
+									</div>
+							 	</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-10">
+								<div class="question" id="question_259093">
+								<div class="row">
+									<div class="col-sm-11 col-xs-11 col-md-11">
+										<h2 class="add_font_color_emphasize" id="title_question_259093">how to define the red, green, and blue Threshold value?</h2>
+									</div>
+								</div>
+                                <div class="row" style="position:relative">
+                                    <div class="col-xs-12 col-sm-12 col-md-8">
+                                        <div id="asked_question_259093" class="contribution">
+                                            Asked by <a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha" class="author_inline" data-cp-link-id="2">Ariff pasha</a>
+<div class="profile mlc_author_popover" data-cp-popup-id="2" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha">Ariff pasha <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/6431412-ariff-pasha">
+            <img src="./imageproject_files/profilepic_default.gif">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A152187"><span property="question_count">5 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A152187"><span property="answer_count">0 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">0 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 0</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div> <span class="question-ask-date">on 6 Dec 2015</span>
+                                        </div>
+                                        <div class="contribution latest-activity">
+  <strong>Latest activity</strong> <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#answer_202369">Edited</a> by <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst" class="author_inline" data-cp-link-id="3">Image Analyst</a>
+<div class="profile mlc_author_popover" data-cp-popup-id="3" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">Image Analyst <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">
+            <img src="./imageproject_files/1343420.jpg">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A3071"><span property="question_count">0 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A3071"><span property="answer_count">22,337 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">7,066 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 37,856</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div> on 6 Dec 2015
+</div>
+
+                                        <div id="accepted_answer_question_259093" class="contribution">
+  <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#answer_202369" class="accepted-answer" rel="nofollow">Accepted Answer</a> by <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst" class="author_inline" data-cp-link-id="4">Image Analyst</a>
+<div class="profile mlc_author_popover" data-cp-popup-id="4" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">Image Analyst <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">
+            <img src="./imageproject_files/1343420.jpg">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A3071"><span property="question_count">0 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A3071"><span property="answer_count">22,337 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">7,066 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 37,856</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+                                    </div>
+                                    
+<div id="views_md_question_259093" class="view-counts-desktop hidden-xs hidden-sm col-md-4">
+  <div class="contribution text-right">
+    133 views (last 30 days)
+  </div>
+</div>
+
+<div id="views_sm_question_259093" class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+  <div class="contribution">
+    133 views (last 30 days)
+  </div>
+</div>
+                                </div>
+
+                    
+
+
+                    <div id="body_question_259093" class="panel panel-default add_text_wrapping">
+											<div class="panel-body">
+                          <pre class="language-matlab">% Demo macro to very, very simple color detection in RGB color space
+</pre><pre class="language-matlab">% by ImageAnalyst
+</pre><pre class="language-matlab">clc;
+</pre><pre class="language-matlab">close all;
+</pre><pre class="language-matlab">% Read standard MATLAB demo image.
+</pre><pre class="language-matlab">rgbImage = imread('onion.png');
+</pre><pre class="language-matlab">% Display the original image.
+</pre><pre class="language-matlab">subplot(3, 4, 1);
+</pre><pre class="language-matlab">imshow(rgbImage);
+</pre><pre class="language-matlab">title('Original RGB Image');
+</pre><pre class="language-matlab">% Maximize figure.
+</pre><pre class="language-matlab">set(gcf, 'Position', get(0, 'ScreenSize'));
+</pre><pre class="language-matlab">% Split the original image into color bands.
+</pre><pre class="language-matlab">redBand = rgbImage(:,:, 1);
+</pre><pre class="language-matlab">greenBand = rgbImage(:,:, 2);
+</pre><pre class="language-matlab">blueBand = rgbImage(:,:, 3);
+</pre><pre class="language-matlab">% Display them.
+</pre><pre class="language-matlab">subplot(3, 4, 2);
+</pre><pre class="language-matlab">imshow(redBand);
+</pre><pre class="language-matlab">title('Red band');
+</pre><pre class="language-matlab">subplot(3, 4, 3);
+</pre><pre class="language-matlab">imshow(greenBand);
+</pre><pre class="language-matlab">title('Green band');
+</pre><pre class="language-matlab">subplot(3, 4, 4);
+</pre><pre class="language-matlab">imshow(blueBand);
+</pre><pre class="language-matlab">title('Blue Band');
+</pre><pre class="language-matlab">% Threshold each color band.
+</pre><pre class="language-matlab">redthreshold = 68;
+</pre><pre class="language-matlab">greenThreshold = 70;
+</pre><pre class="language-matlab">blueThreshold = 72;
+</pre><pre class="language-matlab">redMask = (redBand &gt; redthreshold);
+</pre><pre class="language-matlab">greenMask = (greenBand &lt; greenThreshold);
+</pre><pre class="language-matlab">blueMask = (blueBand &lt; blueThreshold);
+</pre><pre class="language-matlab">% Display them.
+</pre><pre class="language-matlab">subplot(3, 4, 6);
+</pre><pre class="language-matlab">imshow(redMask, []);
+</pre><pre class="language-matlab">title('Red Mask');
+</pre><pre class="language-matlab">subplot(3, 4, 7);
+</pre><pre class="language-matlab">imshow(greenMask, []);
+</pre><pre class="language-matlab">title('Green Mask');
+</pre><pre class="language-matlab">subplot(3, 4, 8);
+</pre><pre class="language-matlab">imshow(blueMask, []);
+</pre><pre class="language-matlab">title('Blue Mask');
+</pre><pre class="language-matlab">% Combine the masks to find where all 3 are "true."
+</pre><pre class="language-matlab">redObjectsMask = uint8(redMask &amp; greenMask &amp; blueMask);
+</pre><pre class="language-matlab">subplot(3, 4, 9);
+</pre><pre class="language-matlab">imshow(redObjectsMask, []);
+</pre><pre class="language-matlab">title('Red Objects Mask');
+</pre><pre class="language-matlab">maskedrgbImage = uint8(zeros(size(redObjectsMask))); % Initialize
+</pre><pre class="language-matlab">maskedrgbImage(:,:,1) = rgbImage(:,:,1) .* redObjectsMask;
+</pre><pre class="language-matlab">maskedrgbImage(:,:,2) = rgbImage(:,:,2) .* redObjectsMask;
+</pre><pre class="language-matlab">maskedrgbImage(:,:,3) = rgbImage(:,:,3) .* redObjectsMask;
+</pre><pre class="language-matlab">subplot(3, 4, 10);
+</pre><pre class="language-matlab">imshow(maskedrgbImage);
+</pre><pre class="language-matlab">title('Masked Original Image');
+</pre><p>hi. i found above coding from imageAnalyst. my question :
+1.) how can i define the red, green, and blue Threshold value?any formula to find the value?for example in my image i want to extract the gold color, and how can i know the exact pixel for gold in RGB colorspace?
+2.) can someone explain to me how the coding above works?</p><p>tq so much</p>
+											</div>
+                    </div>
+
+
+                    
+
+                    <div class="panel panel-default panel_icon_16 comments" id="comments_question_259093" data-state="closed">
+	<div class="panel-body">
+		<h4><span class="icon-feedback icon_16"></span>&nbsp;&nbsp;<span class="comments-count">0 Comments</span></h4>
+
+
+		<div class="toggle-comments hidden"><span>Show</span> <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#toggle-comments" class="hidden-comments-count">all comments</a></div>
+
+
+			<div class="add-comment add-question-comment">
+				<span class="icon-mw-comment icon_16"></span>&nbsp;<a href="https://in.mathworks.com/matlabcentral/answers/comments/new?commentable_id=259093&amp;commentable_type=Question" data-toggle="#comments_question_259093 .add-question-comment, #comment_question_259093" rel="nofollow">Comment on this Question</a>
+			</div>
+
+			<form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/comments" class="comment-form show-modal-on-error create-comment-form matlabmarkup hidden" data-confirm-close="true" data-remote="true" id="comment_question_259093" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+
+				<input name="comment[commentable_id]" type="hidden" value="259093">
+				<input name="comment[commentable_type]" type="hidden" value="Question">
+
+				<div>
+					<label for="question_259093_comment_body" class="required visually-hidden">Body</label>
+					<textarea data-matlab-markup="true" data-resize="true" id="question_259093_comment_body" name="comment[body]"></textarea>
+				</div>
+				<div class="submit">
+					<a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm" data-toggle="#comments_question_259093 .add-question-comment, #comment_question_259093" rel="nofollow">Cancel</a>
+					<input class="btn btn_secondary btn-sm" data-disable-with="Saving…" type="submit" value="Submit">
+				</div>
+</form>	</div>
+</div>
+
+
+</div>                </div>
+					</div>
+        </div>
+    </div>
+
+
+<div class="row small">
+	<div class="col-xs-12 col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>
+						Tags
+					</h2>
+				</div>
+				<div class="col-sm-6">
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div id="tags_question_259093" class="answer-tag-list">
+				<ul class="list-unstyled list-inline"><li><a href="https://in.mathworks.com/matlabcentral/answers/?term=tag%3A%22image+segmentation%22" rel="nofollow">image segmentation</a><span class="separator"></span></li><li><a href="https://in.mathworks.com/matlabcentral/answers/?term=tag%3A%22color+extraction%22" rel="nofollow">color extraction</a></li></ul>
+
+				</div>
+			</div>
+    </div>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>
+						Products
+					</h2>
+				</div>
+				<div class="col-sm-6">
+				</div>
+			 </div>
+		</div>
+		<div class="panel-body">
+			<div id="products_question_259093" class="product-list">
+				<p><em>No products are associated with this question.</em></p>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="panel panel-default accordion visible-xs">
+    <div class="panel-heading col-sm-6" role="tab">
+        <div class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion0" href="#accordion0_1" aria-expanded="true" aria-controls="accordion0_1">
+            <h2>Related Content</h2>
+            <span class="icon-arrow-open-down"></span>
+            <span class="icon-arrow-open-up"></span>
+        </div>
+    </div>
+    <div id="accordion0_1" class="panel-collapse collapse" role="tabpanel">
+          <div class="panel-body">
+              
+<div id="relatedContentMicro" class="relatedContentMicro" itemid="259093" excludeids=""><div><p class="mwRelatedContent_heading">MATLAB Answers</p><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/23297-writing-an-image-into-folder?s_tid=answers_rc1-1_p1_BOTH" title="writing an image into folder">        <p class="related-title">writing an image into folder</p>    </a>    <div class="answer-count-status answered">2 Answers<span style="color:#000000; float:right;"></span></div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/37708-detect-different-colors-in-rgb-colorspace?s_tid=answers_rc1-2_p2_Topic" title="Detect different colors in RGB colorspace">        <p class="related-title">Detect different colors in RGB colorspace</p>    </a>    <div class="answer-count-status answered">1 Answer<span style="color:#000000; float:right;"></span></div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/80325-imwrite-within-a-function?s_tid=answers_rc1-3_p3_MLT" title="Imwrite within a function">        <p class="related-title">Imwrite within a function</p>    </a>    <div class="answer-count-status accepted,answered">2 Answers<span style="color:#000000; float:right;"></span></div></div></div></div></div>
+
+<div id="relatedContentMacro" class="relatedContentMacro" itemid="259093"><div><p class="mwRelatedContent_heading">Entire Website</p><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/help/images/examples/color-based-segmentation-using-the-l-a-b-color-space.html?s_tid=answers_rc2-1_p4_Topic" title="Color-Based Segmentation Using the L*a*b* Color Space">        <p class="related-title">Color-Based Segmentation Using the L*a*b* Color Space</p>    </a>    <div class="small">Documentation</div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/help/images/examples/finding-vegetation-in-a-multispectral-image.html?s_tid=answers_rc2-2_p5_MLT" title="Finding Vegetation in a Multispectral Image">        <p class="related-title">Finding Vegetation in a Multispectral Image</p>    </a>    <div class="small">Documentation</div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="http://blogs.mathworks.com/loren/2009/03/25/four-color-images/?s_tid=answers_rc2-3_p6_Topic" title="Four Color Images">        <p class="related-title">Four Color Images</p>    </a>    <div class="small">Blogs</div></div></div></div></div>
+          </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+	<h2 class="add_font_color_emphasize" id="answer_count_question_259093"><span class="icon-answers"></span> 1 Answer</h2>
+</div>
+
+<div class="panel-body">
+	<div class="row small">
+		<div class="col-xs-12 col-sm-12 col-md-2">
+			<div class="col-xs-4 col-sm-4 col-md-12">
+				<a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst" class="author_inline" data-cp-link-id="5"><img alt="Image Analyst" class="avatar-img" src="./imageproject_files/1343420.jpg"></a>
+<div class="profile mlc_author_popover" data-cp-popup-id="5" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">Image Analyst <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">
+            <img src="./imageproject_files/1343420.jpg">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A3071"><span property="question_count">0 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A3071"><span property="answer_count">22,337 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">7,066 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 37,856</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 tools-no-paddings">
+				<ul class="list-unstyled" id="tools_answer_202369">
+				<div class="col-xs-12 tools_spacer"> </div>
+<div id="votes_answer_202369" class="vote col-xs-6 col-sm-2 col-md-12">
+  <form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/votes" class="vote-form show-modal-on-error" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+    <input name="vote[votable_type]" type="hidden" value="Answer"><input name="vote[votable_id]" type="hidden" value="202369">
+    <button class="off btn btn-link" title="Add your vote" type="submit"><span class="icon-like vote_icon"></span><span class="vote_prompt">Vote</span></button><div class="vote_count"><span class="pipe"></span>0</div>
+</form></div>
+
+
+
+<div class="col-xs-12 visible-xs visible-sm tools_spacer"> </div>
+
+<div class="flag col-xs-3 col-sm-2 col-md-12" id="toggle_flag_answer_202369">
+  <a href="https://in.mathworks.com/matlabcentral/answers/flagged/new?flaggable_id=202369&amp;flaggable_type=Answer" data-toggle="#flag_answer_202369" rel="nofollow"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Flag </a>
+
+</div>
+<form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/flagged" class="flagging-form show-modal-on-error hidden small" data-dialog="true" data-remote="true" id="flag_answer_202369" method="post" title="Flag with care"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+  <input name="flagging[flaggable_id]" type="hidden" value="202369">
+  <input name="flagging[flaggable_type]" type="hidden" value="Answer">
+
+    <div>
+      <label for="flag_answer_202369_message">Include the reason for your flag below: <span class="tip">Your message will be publicly visible.</span></label>
+      <textarea id="flag_answer_202369_message" name="flagging[message]" data-resize="true" class="form-control"></textarea>
+    </div>
+    <div class="submit">
+      <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm" data-toggle="#flag_answer_202369" rel="nofollow">Cancel</a>
+      <input class="btn btn_secondary btn-sm" data-disable-with="Saving…" type="submit" value="Submit">
+
+    </div>
+</form>
+
+
+
+<div class="answer-link col-xs-3 col-sm-2 col-md-12">
+	<a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#answer_202369" data-toggle="#permalink_answer_202369" id="toggle_permalink_answer_202369" rel="nofollow" title="Direct link to this answer"><span class="icon-link"></span>Link</a>
+</div>
+<div data-dialog="compact" class="permalink-dialog hidden small" id="permalink_answer_202369">
+  <p><strong>Direct link to this answer:</strong></p>
+  <p class="link-wrapper"><a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#answer_202369" id="anchor_permalink_answer_202369">https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#answer_202369</a></p>
+  <div class="submit permalink_buttons">
+      <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm" data-toggle="#permalink_answer_202369" rel="nofollow">Cancel</a>
+      <button type="button" class="btn btn_secondary btn-sm copy_permalink" id="copy_permalink_answer_202369">Copy to Clipboard</button>
+  </div>
+</div>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-md-10 col-sm-10">
+		<div class="answer" id="answer_202369">
+			<div id="created_answer_202369" class="contribution">
+  Answer by <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst" class="author_inline" data-cp-link-id="6">Image Analyst</a>
+<div class="profile mlc_author_popover" data-cp-popup-id="6" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">Image Analyst <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">
+            <img src="./imageproject_files/1343420.jpg">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A3071"><span property="question_count">0 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A3071"><span property="answer_count">22,337 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">7,066 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 37,856</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div> <span class="answered-date">on 6 Dec 2015</span>
+</div>
+
+	<div class="contribution latest-activity">
+	Edited by <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst" class="author_inline" data-cp-link-id="7">Image Analyst</a>
+<div class="profile mlc_author_popover" data-cp-popup-id="7" vocab="http://schema.org/" typeof="Person">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="profile__name" property="name"><a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">Image Analyst <span>(view profile)</span></a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="profile__image">
+        <a href="https://in.mathworks.com/matlabcentral/profile/authors/1343420-image-analyst">
+            <img src="./imageproject_files/1343420.jpg">
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-8   profile__stats" typeof="CreativeWork">
+      
+  <ul class="contributor-page-popup">
+    <li property="question">
+      <span class="icon-contactus" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=asked_by_id%3A3071"><span property="question_count">0 questions</span> </a>
+    </li>
+    <li property="answer">
+      <span class="icon-answers" aria-hidden="true"></span>
+      <a href="https://in.mathworks.com/matlabcentral/answers/?term=answered_by_id%3A3071"><span property="answer_count">22,337 answers</span> </a>
+    </li>
+    <li property="answers_accepted">
+      <span class="icon-check" aria-hidden="true"></span>
+      <span property="answers_accepted_count">7,066 accepted answers</span>
+    </li>
+    <li property="answers_reputation">
+      <span class="icon-rating" aria-hidden="true"></span>
+      <span property="answers_accepted_count">Reputation: 37,856</span>
+    </li>
+  </ul>
+
+    </div>
+
+  </div>
+</div> <span class="answered-edit-date">on 6 Dec 2015</span>
+</div>
+
+
+
+
+				<div class="accepted"><span class="icon-check icon_16"></span>&nbsp;<span>Accepted answer</span></div>
+			<br>
+
+			
+
+
+			<div id="body_answer_202369" class="panel panel-default add_text_wrapping">
+	<div class="panel-body">
+		<p>Use impixelinfo() to have it display the RGB values as you mouse around the image.  See updated demo, attached.  for the red, green, and blue threshold for the yellow pepper, try these (that I got from the Color Thresholder App):</p><pre class="language-matlab">% Define thresholds for channel 1 (Red) based on histogram settings
+channel1Min = 244.000;
+channel1Max = 255.000;
+</pre><pre class="language-matlab">% Define thresholds for channel 2 (Green) based on histogram settings
+channel2Min = 131.000;
+channel2Max = 247.000;
+</pre><pre class="language-matlab">% Define thresholds for channel 3 (Blue) based on histogram settings
+channel3Min = 0.000;
+channel3Max = 164.000;
+</pre>
+	</div>
+</div>
+
+
+
+					<div class="row" id="answer_202369_attached_files">
+		<div class="col-sm-12 col-xs-12">
+			<div class="attached-files">
+				<ul class="list-unstyled list-inline">
+					<li id="uploaded_file_41407">
+						<a href="https://in.mathworks.com/matlabcentral/answers/uploaded_files/41407/SimpleColorDetection.m">SimpleColorDetection.m</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+			<div class="panel panel-default panel_icon_16 comments" id="comments_answer_202369" data-state="closed">
+	<div class="panel-body">
+		<h4><span class="icon-feedback icon_16"></span>&nbsp;&nbsp;<span class="comments-count">0 Comments</span></h4>
+
+
+		<div class="toggle-comments hidden"><span>Show</span> <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#toggle-comments" class="hidden-comments-count">all comments</a></div>
+
+
+			<div class="add-comment add-answer-comment">
+				<span class="icon-mw-comment icon_16"></span>&nbsp;<a href="https://in.mathworks.com/matlabcentral/answers/comments/new?commentable_id=202369&amp;commentable_type=Answer" data-toggle="#comments_answer_202369 .add-answer-comment, #comment_answer_202369" rel="nofollow">Comment on this Answer</a>
+			</div>
+
+			<form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/comments" class="comment-form show-modal-on-error create-comment-form matlabmarkup hidden" data-confirm-close="true" data-remote="true" id="comment_answer_202369" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+
+				<input name="comment[commentable_id]" type="hidden" value="202369">
+				<input name="comment[commentable_type]" type="hidden" value="Answer">
+
+				<div>
+					<label for="answer_202369_comment_body" class="required visually-hidden">Body</label>
+					<textarea data-matlab-markup="true" data-resize="true" id="answer_202369_comment_body" name="comment[body]"></textarea>
+				</div>
+				<div class="submit">
+					<a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm" data-toggle="#comments_answer_202369 .add-answer-comment, #comment_answer_202369" rel="nofollow">Cancel</a>
+					<input class="btn btn_secondary btn-sm" data-disable-with="Saving…" type="submit" value="Submit">
+				</div>
+</form>	</div>
+</div>
+
+</div>		</div>
+	</div>
+	<hr>
+</div>
+
+
+
+
+    <div class="add-answer small">
+      <h3>Answer this question</h3>
+
+
+      <form accept-charset="UTF-8" action="https://in.mathworks.com/matlabcentral/answers/answers" class="answer-form show-modal-on-error create-answer-form matlabmarkup" data-confirm-close="true" data-remote="true" id="answer_question_259093" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="vZxMJtSNipVk3qybnT/PJjYZKW7Lxp138ZG5L8i99Es="></div>
+        <input name="question_id" type="hidden" value="259093">
+
+        <p>This place is reserved for an answer to the question.</p>
+<ul>
+  <li>To clarify the question, edit it.</li>
+  <li>To thank answerers, add your vote to helpful answers and accept the best one.</li>
+  <li>To ask for clarification, submit a comment to the question or answer.</li>
+</ul>
+
+        <div>
+          <label for="question_259093_answer_body" class="required visually-hidden">Body</label>
+          <div class="matlabmarkup-toolbar"><a class="matlabmarkup-bold" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#bold" title="Bold"><span>Bold</span></a><a class="matlabmarkup-italic" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#italic" title="Italic"><span>Italic</span></a><a class="matlabmarkup-monospaced" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#monospaced" title="Monospaced"><span>Monospaced</span></a><a class="matlabmarkup-bulleted-list" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#bulleted-list" title="Bulleted list"><span>Bulleted list</span></a><a class="matlabmarkup-numbered-list" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#numbered-list" title="Numbered list"><span>Numbered list</span></a><a class="matlabmarkup-code" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#code" title="Code"><span>Code</span></a><a class="matlabmarkup-hyperlink" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#hyperlink" title="Hyperlink"><span>Hyperlink</span></a><a class="matlabmarkup-image" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#image" title="Image"><span>Image</span></a><a class="matlabmarkup-attach-file" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#attach-file" title="Attach file"><span>Attach file</span></a><a class="matlabmarkup-help" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#help" title="Help"><span>Help</span></a></div><div class="matlabmarkup-dialog" style="display: none;"><p class="title">Insert an image:</p><div class="panel-control" id="panel_control_4"><input type="radio" name="panel_control_4_button" checked="checked"><label>From my computer</label><input type="radio" name="panel_control_4_button"><label>From the Web</label></div><div class="panel" style="display: block;"><div class="upload-control-wrapper"><span class="upload-control-button"><span>Choose file</span><input type="file"></span><span class="upload-control-label">Files must be 5 MB or smaller.</span></div></div><div class="panel" style="display: none;"><label>URL</label><input type="text" tabindex="200" placeholder="http://www.mathworks.com/matlabcentral/images/surf.gif"></div><div class="buttons"><a href="https://in.mathworks.com/matlabcentral/termsofuse.html#content" target="_blank" class="guidelines">Guidelines for Submitting Content</a><a tabindex="202" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#cancel" class="button cancel">Cancel</a><a tabindex="201" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#add-image" class="button add-image disabled">Insert Image</a></div></div><div class="matlabmarkup-dialog" style="display: none;"><p class="title">Insert a link:</p><div><label>URL</label><input type="text" tabindex="100" placeholder="http://www.mathworks.com"></div><div><label>Link title</label><input type="text" tabindex="101" placeholder="MathWorks"></div><div class="buttons"><a tabindex="104" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#cancel" class="button cancel">Cancel</a><a tabindex="102" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#add-link" class="button add-link disabled">Add Link</a><a tabindex="103" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#remove-link" class="button remove-link disabled">Remove Link</a></div></div><div class="matlabmarkup-dialog" style="display: none;"><p class="title">Attach a file:</p><div class="upload-control-wrapper"><span class="upload-control-button add-file" tabindex="301"><span>Choose file</span><input type="file"></span><span class="upload-control-label">Files must be 5 MB or smaller.</span></div><div class="buttons"><a href="https://in.mathworks.com/matlabcentral/termsofuse.html#content" target="_blank" class="guidelines">Guidelines for Submitting Content</a><a class="file_dialog_cancel button cancel" tabindex="302" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#cancel">Cancel</a></div></div><div class="matlabmarkup-wrapper"><div class="ui-wrapper" style="overflow: hidden; position: relative; width: 812px; height: 150px; top: 0px; left: 0px; margin: 0px; padding-bottom: 16px;"><textarea data-matlab-markup="true" data-resize="true" id="question_259093_answer_body" name="answer[body]" class="ui-resizable" style="margin: 0px; resize: none; position: static; zoom: 1; display: block; height: 129px; width: 802px;"></textarea><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div></div><div class="matlabmarkup-preview"><div class="matlabmarkup-preview-divider"><span>Preview</span><a class="matlabmarkup-preview-toggle" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#matlabmarkup-toggle">Disable</a><a class="matlabmarkup-preview-refresh hidden" href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#matlabmarkup-refresh">Refresh</a></div><div class="matlabmarkup-preview-body" id="question_259093_answer_body_matlabmarkup_preview"></div></div>
+        </div>
+        <div class="submit">
+          <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value" class="btn btn_primary btn-sm cancel" rel="nofollow">Cancel</a>
+          <input class="btn btn_secondary btn-sm" data-disable-with="Saving…" type="submit" value="Submit">
+
+        </div>
+</form>
+    </div>
+
+
+</div>
+</div>
+
+	<div class="col-xs-12 col-sm-3">
+		<div class="hidden-xs">
+		    <p id="main-heading-1" class="main-heading">Related Content</p>
+			
+<div id="relatedContentMicro" class="relatedContentMicro" itemid="259093" excludeids=""><div><p class="mwRelatedContent_heading">MATLAB Answers</p><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/23297-writing-an-image-into-folder?s_tid=answers_rc1-1_p1_BOTH" title="writing an image into folder">        <p class="related-title">writing an image into folder</p>    </a>    <div class="answer-count-status answered">2 Answers<span style="color:#000000; float:right;"></span></div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/37708-detect-different-colors-in-rgb-colorspace?s_tid=answers_rc1-2_p2_Topic" title="Detect different colors in RGB colorspace">        <p class="related-title">Detect different colors in RGB colorspace</p>    </a>    <div class="answer-count-status answered">1 Answer<span style="color:#000000; float:right;"></span></div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/matlabcentral/answers/80325-imwrite-within-a-function?s_tid=answers_rc1-3_p3_MLT" title="Imwrite within a function">        <p class="related-title">Imwrite within a function</p>    </a>    <div class="answer-count-status accepted,answered">2 Answers<span style="color:#000000; float:right;"></span></div></div></div></div></div>
+
+<div id="relatedContentMacro" class="relatedContentMacro" itemid="259093"><div><p class="mwRelatedContent_heading">Entire Website</p><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/help/images/examples/color-based-segmentation-using-the-l-a-b-color-space.html?s_tid=answers_rc2-1_p4_Topic" title="Color-Based Segmentation Using the L*a*b* Color Space">        <p class="related-title">Color-Based Segmentation Using the L*a*b* Color Space</p>    </a>    <div class="small">Documentation</div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="https://in.mathworks.com/help/images/examples/finding-vegetation-in-a-multispectral-image.html?s_tid=answers_rc2-2_p5_MLT" title="Finding Vegetation in a Multispectral Image">        <p class="related-title">Finding Vegetation in a Multispectral Image</p>    </a>    <div class="small">Documentation</div></div></div><div><div class="media" style="margin-bottom:10px;">    <a href="http://blogs.mathworks.com/loren/2009/03/25/four-color-images/?s_tid=answers_rc2-3_p6_Topic" title="Four Color Images">        <p class="related-title">Four Color Images</p>    </a>    <div class="small">Blogs</div></div></div></div></div>
+		</div>
+		<div class="random_callout">
+    <div class="panel panel-default panel_color_default panel_color_fill add_margin_20">
+  <div class="panel-body"> <img src="./imageproject_files/discover-makerzone-logo.png" alt="Discover MakerZone" class="add_margin_20">
+    <p>MATLAB and Simulink resources for Arduino, LEGO, and Raspberry Pi</p>
+    <a href="http://makerzone.mathworks.com/?utm_source=Acad&amp;utm_medium=spotlight&amp;utm_campaign=MZ" class="icon-chevron">Learn more </a> </div>
+</div>
+<div class="panel panel-default panel_color_default panel_color_fill add_margin_20">
+  <div class="panel-body">
+    <h3>Discover what MATLAB<sup>®</sup> can do for your career.</h3>
+    <p>Opportunities for recent engineering grads.</p>
+    <a href="https://in.mathworks.com/company/jobs/opportunities/students/infographic.html?source=7677" class="icon-chevron">Apply Today </a> </div>
+</div><div class="panel panel-default panel_color_default add_margin_20" style="display: block;">
+  <div class="panel-heading" style="background-color: #0a3371; background-image:url(/images/responsive/callouts/matlab-academy.jpg);"> </div>
+  <div class="panel-body panel_color_white panel_color_fill">
+    <h3>MATLAB Academy</h3>
+    <p>New to MATLAB?</p>
+    <a href="http://matlabacademy.mathworks.com/?s_tid=mlc_mlac_ans_sl" class="icon-chevron">Learn MATLAB today! </a> </div>
+</div></div>
+	</div>
+</div>
+
+<div class="modal fade" id="error_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="alert alert-danger error">
+          <span class="alert_icon icon-alert-error icon_32"></span>
+          <h4>An Error Occurred</h4>
+          <p>Unable to complete the action because of changes made to the page. Reload the page to see its updated state.</p>
+        </div>
+      </div>
+      <div class="modal-footer modal_close_footer">
+        <button type="button" class="btn btn_secondary pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  setTimeout(function() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "/matlabcentral/answers/C623322ED49BD", true);
+    xmlHttp.send( null );
+  }, 5000);
+</script>
+
+
+
+  
+
+
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+         
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected" translate="no">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <object type="image/svg+xml" width="167px" class="mw_logo" alt="MathWorks" data="./imageproject_files/pic-header-mathworks-logo2.svg">
+          <img alt="MathWorks" width="167px" src="./imageproject_files/pic-header-mathworks-logo.png">
+        </object>
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary">Select Your Country</h1>
+            <p>Choose your country to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="text_location"></strong>.</p>
+            <a href="https://in.mathworks.com/matlabcentral/answers/259093-how-to-define-the-red-green-and-blue-threshold-value#" id="domain_select_button" class="btn btn_secondary" data-dismiss="modal"></a>
+          </div>
+        </div>
+        <p>You can also select a location from the following list:</p>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://www.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="canada_select">Canada</a> (English)</li>
+              <li><a href="https://www.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="united_states_select">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="https://nl.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="belgium_select">Belgium</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="denmark_select">Denmark</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="deutschland_select">Deutschland</a> (Deutsch)</li>
+                  <li><a href="https://es.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="espana_select">España</a> (Español)</li>
+                  <li><a href="https://se.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="finland_select">Finland</a> (English)</li>
+                  <li><a href="https://fr.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="france_select">France</a> (Français)</li>
+                  <li><a href="https://uk.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="ireland_select">Ireland</a> (English)</li>
+                  <li><a href="https://it.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="italia_select">Italia</a> (Italiano)</li>
+                  <li><a href="https://nl.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="luxembourg_select">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://nl.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="netherlands_select">Netherlands</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="norway_select">Norway</a> (English)</li>
+                  <li><a href="https://de.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="osterreich_select">Österreich</a> (Deutsch)</li>
+                  <li><a href="https://www.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="portugal_select">Portugal</a> (English)</li>
+                  <li><a href="https://se.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="sweden_select">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ch.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" id="swiss_german" class="switzerland_select">Deutsch</a></li>
+                      <li><a href="https://ch.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" id="swiss_english" class="switzerland_select">English</a></li>
+                      <li><a href="https://ch.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" id="swiss_french">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="https://uk.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="united_kingdom_select">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://au.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="australia_select">Australia</a> (English)</li>
+              <li><a href="https://in.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="india_select">India</a> (English)</li>
+              <li><a href="https://au.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="new_zealand_select">New Zealand</a> (English)</li>
+              <li><a href="https://cn.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="china_select">中国</a> (简体中文)</li>
+              <li><a href="https://jp.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="japan_select">日本</a> (日本語)</li>
+              <li><a href="https://kr.mathworks.com/includes_content/domainRedirect/country_select_alt.html?action=changeCountry&amp;uri=%2Fmatlabcentral%2Fanswers%2F259093-how-to-define-the-red-green-and-blue-threshold-value&amp;domain=in.mathworks.com&amp;s_tid=gn_loc_drop" class="korea_select">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><strong><a href="https://in.mathworks.com/company/worldwide/">See all countries</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  
+  <!-- MOBILE CTA - Begin -->
+  <div class="cta_container_mobile visible-sm visible-xs">
+    <div class="container-fluid">      
+      <div class="row add_margin_20">
+        <div class="col-xs-12">
+          <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general"><a href="https://in.mathworks.com/programs/trials/trial_request.html?eventid=56763&amp;prodcode=ML&amp;s_iid=mlcans_trial_mlc_cta1" class="icon-download">Trial software</a></li>
+</ul>
+</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MOBILE CTA - End -->
+
+  <footer id="footer" class="bs-footer"> 
+      <!-- FAT FOOTER - Begin --> 
+        <div class="fat_footer_container">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="grid_192">
+<div class="fat_footer">
+<div class="execmatlabweb"> <!--Requried for Doc Test -->
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-9 col-lg-push-3 add_margin_20">
+<div class="row">
+<div class="col-xs-12 col-sm-2">
+<h5>Explore Products</h5>
+<ul class="list-unstyled">
+<li><a href="https://in.mathworks.com/products/matlab.html?s_tid=hp_ff_p_matlab">MATLAB</a></li>
+<li><a href="https://in.mathworks.com/products/simulink.html?s_tid=hp_ff_p_simulink">Simulink</a></li>
+<li><a href="https://in.mathworks.com/academia/student_version.html?s_tid=hp_ff_p_student">Student Software</a></li>
+<li><a href="https://in.mathworks.com/hardware-support/home.html?s_tid=hp_ff_p_hwsupport">Hardware Support</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/fileexchange/?s_tid=hp_ff_p_fx">File Exchange</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>Try or Buy</h5>
+<ul class="list-unstyled">
+<li><a href="https://in.mathworks.com/downloads/web_downloads/?s_iid=hp_ff_t_downloads">Downloads</a></li>
+<li><a href="https://in.mathworks.com/programs/trials/trial_request.html?s_iid=hp_ff_p_trial">Trial Software</a></li>
+<li><a href="https://in.mathworks.com/company/aboutus/contact_us/contact_sales.html?s_iid=hp_ff_t_sales">Contact Sales</a></li>
+<li><a href="https://in.mathworks.com/pricing-licensing/?s_iid=hp_ff_t_pricing">Pricing and Licensing</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>Learn to Use</h5>
+<ul class="list-unstyled">
+<li><a href="https://in.mathworks.com/help/?s_tid=hp_ff_l_doc">Documentation</a></li>
+<li><a href="https://in.mathworks.com/support/learn-with-matlab-tutorials.html?s_tid=hp_ff_l_tutorials">Tutorials</a></li>
+<li><a href="https://in.mathworks.com/examples/?s_tid=hp_ff_l_examples">Examples </a></li>
+<li><a href="https://in.mathworks.com/videos.html?s_tid=hp_ff_l_videos">Videos and Webinars</a></li>
+<li><a href="https://in.mathworks.com/services/training.html?s_tid=hp_ff_l_training">Training</a></li>
+</ul>
+</div>
+<div class="clearfix" id="offcanvas_clearfix" style="display:none"></div>
+<div class="col-xs-12 col-sm-2">
+<h5>Get Support</h5>
+<ul class="list-unstyled">
+<li><a href="https://in.mathworks.com/support/install-matlab.html?s_tid=hp_ff_s_install">Installation Help</a></li>
+<li><a href="https://in.mathworks.com/matlabcentral/answers/?s_tid=hp_ff_s_answers">Answers </a></li>
+<li><a href="https://in.mathworks.com/services/consulting.html?s_tid=hp_ff_s_consulting">Consulting</a></li>
+<li><a href="https://in.mathworks.com/licensecenter/?s_tid=hp_ff_s_license">License Center</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<h5>About <span translate="no">MathWorks</span></h5>
+<ul class="list-unstyled">
+<li><a href="https://in.mathworks.com/company/jobs/opportunities/?s_tid=hp_ff_a_careers">Careers</a></li>
+<li><a href="https://in.mathworks.com/company/newsroom.html?s_tid=hp_ff_a_newsroom">Newsroom</a></li>
+<li><a href="https://in.mathworks.com/company/aboutus/soc_mission.html?s_tid=hp_ff_a_socialmission">Social Mission</a></li>
+<li><a href="https://in.mathworks.com/company.html?s_tid=hp_ff_a_company">About <span translate="no">MathWorks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-md-12 col-lg-3 col-lg-pull-9">
+<h4 class="add_font_futura_medium add_margin_0"><span translate="no">MathWorks<span translate="no"></span></span></h4>
+<p><em>Accelerating the pace of engineering and science</em></p>
+<p><span translate="no">MathWorks</span> is the leading developer of mathematical computing software for engineers and scientists.</p>
+<p><a href="https://in.mathworks.com/discovery.html?s_tid=all_disc_mw_ff">Discover...</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- FAT FOOTER - End -->
+    <!-- BASIC FOOTER CONTENT - Begin --> 
+    <div class="container"> 
+      <div class="footer" translate="no">
+<div class="row">
+<div class="col-xs-12 col-md-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="javascript:void(0);" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>India
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="http://in.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="http://in.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="http://in.mathworks.com/company/aboutus/policies_statements.html?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="http://in.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+<li class="footernav_terms"><a href="http://in.mathworks.com/matlabcentral/termsofuse.html">Terms of Use</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright" translate="no">© 1994-2017 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-md-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="http://www.facebook.com/MATLAB" target="_blank" class="svg_link">
+<img src="./imageproject_files/ico-facebook.svg" alt="Facebook" class="ico_facebook">
+</a>
+</li>
+<li>
+<a href="http://www.twitter.com/MATLAB" target="_blank" class="svg_link">
+<img src="./imageproject_files/ico-twitter.svg" alt="Twitter" class="ico_twitter">
+</a>
+</li>
+<li>
+<a href="https://plus.google.com/117177960465154322866?prsrc=3" target="_blank" class="svg_link">
+<img src="./imageproject_files/ico-google-plus.svg" alt="Google+" class="ico_google">
+</a>
+</li>
+<li>
+<a href="http://www.linkedin.com/company/the-mathworks_2" target="_blank" class="svg_link">
+<img src="./imageproject_files/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin">
+</a>
+</li>
+<li>
+<a href="http://in.mathworks.com/company/rss.html" class="svg_link">
+<img src="./imageproject_files/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script><!-- Google Remarketing Main Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+//var google_tag_params = {
+//  section: 'na',
+//  subsection: 'na',
+//  pagetype: 'na',
+//  productcode: 'na',
+//  membertype: 'na',
+//  conversiontype: 'na',
+//  logged_in: 'na'
+//};
+//if (typeof _satellite.getVar("potentialUseQueryString") !== 'undefined' && _satellite.getVar("potentialUseQueryString") !== "") {
+//  google_tag_params.membertype = _satellite.getVar("potentialUseQueryString");
+//}
+//
+//if (typeof _satellite.getVar("eloquaFormName") !== 'undefined' && _satellite.getVar("eloquaFormName ") !== "") {
+//  google_tag_params.conversiontype = _satellite.getVar("eloquaFormName");
+//}
+//
+//if (typeof _satellite.getVar("productInfo") !== 'undefined' && _satellite.getVar("productInfo") !== "") {
+//  google_tag_params.productcode = _satellite.getVar("productInfo");
+//}
+//if (document.cookie.match('MW_AL')) {
+//  google_tag_params.logged_in = '1';
+//}
+  
+var google_conversion_id = 1023777138;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./imageproject_files/conversion.js.download">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./imageproject_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Adobe DTM -->
+    </div>
+    <!-- BASIC FAT FOOTER CONTENT - End -->
+  </footer>
+
+    <script src="./imageproject_files/lightbox-min.js.download"></script> 
+    <script>
+      $(document).ready(function ($) {
+
+        // delegate calls to data-toggle="lightbox"
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+          event.preventDefault();
+          return $(this).ekkoLightbox({
+            onShown: function() {
+				if ($('.ekko-lightbox-container iframe').length) {
+				  $(".ekko-lightbox-container iframe").attr("scrolling","no");
+				  $(".ekko-lightbox-container iframe").load(lightboxIframeHeight);
+				}
+            },
+            onNavigate: function(direction, itemIndex) {
+              if (window.console) {
+                return console.log('Navigating '+direction+'. Current item: '+itemIndex);
+              }
+            }
+          });
+        });
+		
+		// resize
+		$(window).resize(lightboxIframeHeight)	
+
+		// lightbox height function
+		function lightboxIframeHeight() {
+			if ($('.ekko-lightbox-container iframe').length) {
+				whichIframeHeight = $('.ekko-lightbox-container iframe').contents().find('body').height() + 20;
+				$(".ekko-lightbox-container iframe").css("height",whichIframeHeight);
+			}
+		}
+
+        //Programatically call
+        $('#open-image').click(function (e) {
+          e.preventDefault();
+          $(this).ekkoLightbox();
+        });
+        $('#open-youtube').click(function (e) {
+          e.preventDefault();
+          $(this).ekkoLightbox();
+        });
+      });
+    </script> 
+
+
+
+<a class="btn btn_primary" id="go-top" style="display: inline;"><span class="icon-arrow-open-up icon_24"></span></a></body></html>
