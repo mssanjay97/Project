@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>
+dbms project
+</title>
+</head>
+<body>
+<?php
+&fname=&lname=&reg="";
+$err="":
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+if(empty($_POST["fname"])
+$fname="Enter first name";
+else if(empty($_POST["lname"])
+$lname="Enter last name";
+else if(empty($_POST["regno"])
+$reg="Enter registration number";
+$target_dir = "D:/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$empty=0;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    if (empty($_FILES["fileToUpload"]["name"]))
+     {$err= "please upload a file";
+      $uploadOk = 0;$empty=1;
+      }
+    else
+    {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        $err= "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        $err="File is not an image.";
+        $uploadOk = 0;
+    }
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)&&($uploadOk==1)) {
+    $err="Sorry, file already exists.";
+    $uploadOk = 0;
+}
+
+// Allow certain file formats
+if(($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" )&&($uploadOk==1)) {
+    $err= "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if($empty==0)
+{
+if (($uploadOk == 0) ) {
+    $err="Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        $err= "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        $err="Sorry, there was an error uploading your file.";
+    }
+}
+}
+
+
+}
+
+?>
+
+<form>
+  First name:<br>
+  <input type="text" name="fname"><?php echo $fname; ?><br>
+  Last name:<br>
+  <input type="text" name="lname"><?php echo $lname; ?><br>
+  Registration number:<br>
+  <input type="text" name="regno"><?php echo $reg; ?><br>
+  Branch:<?php echo $err; ?><br>
+  <select>
+  <option value="cs">Computer Science</option>
+  <option value="mech">Mechanical Engineering</option>
+  <option value="ece">Electronics and Communication Engineering</option>
+  <option value="eee">Electrical and Elecronics Engineering</option>
+  <option value="civil">CIVIL Engineering</option>
+  <option value="it">Information Techn0logy</option>
+  </select>
+</form>
+  <br>
+  <form  method="post" enctype="multipart/form-data" action="dbms.php">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit"  >
+  </form>
+  <br>
+
+</body>
+</html>
