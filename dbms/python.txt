@@ -1,0 +1,28 @@
+
+from PIL import Image
+import mysql.connector
+from PIL import ImageChops
+import os
+import sys, json
+data = (sys.argv[1])
+print("hello !!%s"%data)
+path1="C:\\Users\\Public\\Pictures\\Sample Pictures\\sample"
+def equal(im1, im2):
+    return ImageChops.difference(im1, im2).getbbox() is None
+im1=Image.open("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg")
+im1.resize((50,50))
+listing = os.listdir(path1)
+for file in listing:
+    path2=(path1+"\\"+file)
+    im = Image.open(path2)
+    print(path2)
+    if(equal(im,im1)):
+        cnx = mysql.connector.connect(user='root',database='myDB')
+        #cursor = cnx.cursor()
+        #query = ("SELECT * FROM student WHERE imgname like %s")
+        #cursor.execute(query, (im))
+        #for (row) in cursor:
+            #print (row)
+        
+        #cnx.close()
+
