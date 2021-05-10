@@ -1,0 +1,307 @@
+<html>
+<head>
+    <title>Home | Menu</title>
+    </head>
+<style>
+    
+    body{
+        overflow-x:hidden;
+        margin-left:0;
+    }
+    .texts
+    {
+         white-space: nowrap;
+    /*overflow: hidden;*/
+        
+    }
+    #title{
+        color:rgb(4,0,141);
+        margin-left:320px;
+        padding-top:8px;
+
+        font-weight: bold;
+      font-family: 'Times New Roman';
+        font-size:32px;
+        margin-bottom: 20px;
+    }
+    
+    #nav{
+        display:block;
+        width:850px;
+        background-color: rgb(248,236,214);
+        
+        
+         margin:0 !important;
+  padding:0 !important;
+        
+       margin-bottom:10px;
+    }
+    
+    .ele
+    {
+        display:inline-block;
+        padding:5px 4px;
+        font-size:18px;
+        text-decoration: none;
+        color:rgb(93,84,209);
+    }
+
+    
+    
+    
+    
+       #first{
+        margin-left:60px;
+    }
+    
+    a:link{
+        /*color:rgb(80,60,131);*/
+        color:rgb(41,16,210);
+        /*color:rgb(11,122,235);*/
+    }
+    
+    a:visited{
+        /*color:rgb(180,136,156);*/
+        
+        /*color:rgb(93,67,102);*/
+        color:rgb(62,95,102);
+    }
+  
+    
+    a:active{
+        color:red;
+    }
+    
+    
+    .fixed-bg {
+    margin:0px 0px 0px 0px;
+  background-image: url("Restaurant.jpg");
+ /* background-size: 900px 450px ;*/
+      background-size: 760px 560px;
+     background-position:50px 0px;  
+        
+          height: 400px;
+        width:700px;
+  background-attachment: fixed;
+ /* background-position: left;*/
+  background-repeat: no-repeat;
+        
+       
+     
+} 
+   
+    
+       .Relative{
+        margin-left: 70px;
+           margin-top:10px;
+        position:relative;
+        
+    }
+    
+    #enjoy
+    {
+        position: absolute;
+  left: 175px;
+        top:100px;
+        font-size:42px;
+        color:white;
+       
+    }
+    
+    button
+    {position: absolute;
+        left: 450px;
+        top:205px;
+        background-color: lightcyan;
+        padding:5px 12px;
+        /*
+        outline-style: double;
+        #outline-width: 2px;
+        outline-color:black;
+        */
+        border-style:double;
+        border-color:black;
+        border-width:4px; 
+        cursor: pointer;
+    }
+    
+    #explore
+    {
+        
+        margin-left:300px;color:rgb(116,18,116);font-family:'Comic Sans MS';font-size:20px; 
+       
+        
+        
+    }
+    
+    .left{
+        margin-left:70px;
+        margin-top:0px;
+       /* height:300px;*/
+        position:relative;
+    }
+    .left img
+    {
+        width:330px;
+        height:240px;
+        
+        border-width:10px;
+        border-color:rgb(252,228,228);
+        border-style:solid;
+        
+    }
+    .left .txt
+    { display:inline-block;
+       width:300px;
+        height:190px;
+        padding-top:70px;
+        padding-left:30px;
+         
+         
+        
+        position:absolute;
+        left:380px;
+    }
+    
+    .left .heading,.right .heading
+    {
+       /*font-size:20px;*/
+        
+        color:rgb(34,74,185);
+        font-weight: bold;
+    }
+    
+    
+    .right{
+        margin-left:70px;
+        margin-top:0px;
+        /*height:300px;*/
+        position:relative;
+            
+    }
+    .right img
+    {
+        width:330px;
+        height:240px;
+        
+        border-width:10px;
+        border-color:rgb(175,216,228);
+        border-style:solid;
+        
+        position:absolute;
+        left:350px;
+        
+    }
+    .right .txt
+    { display:inline-block;
+       width:330px;
+        height:190px;
+        padding-top:70px;
+        
+        
+        
+    }
+    
+    
+    </style>
+<body >
+    <h1 id="title" id="home" class="texts"><strong>Trojan Café</strong></h1>
+    
+
+    <div id="nav"> 
+    <a href="HW3_home.html"  id="first" class="ele">Home</a>
+  <a href="#italian" class="ele">Italian</a>
+  <a href="#indian" class="ele">Indian</a>
+  <a href="#japanese" class="ele">Japanese</a>
+  <a href="#desserts" class="ele">Desserts</a>
+  <a href="welcome.htm" target="_blank" class="ele">About</a>
+  <a href="welcome.htm" target="_blank" class="ele">Contact</a>
+    
+    </div>
+
+ <br>
+       
+         <div class="Relative">
+             <div class="fixed-bg"></div>
+              <h1  id="enjoy" class="texts"> Enjoy the Scenic View!!</h1><button class="texts">Book Your Reservation</button> 
+           </div>          
+    
+    <!-- style="padding-bottom:0px;;border-bottom: 5px double;"--> 
+    
+    
+    
+   <div id="explore" class="texts"><h4 ><bold style="text-decoration-line: underline; text-decoration-style: double;" >Explore Our Delicious Cuisines</h4> </span></div>
+    
+    
+    
+    <div class="left">
+    
+    <img src="Italian%20Cuisine.jpg" id="italian">
+        
+        <span class="txt ">
+        <span class="heading">Italy's finest:</span>
+           <br>
+        <span>From our Lasagna to our Protein Penne, we have delicious options for every taste!</span>
+        </span>
+    </div> 
+    
+    
+    <br><br><br>
+    
+    
+    <div class="right">
+
+    
+        
+        <span class="txt ">
+        <span class="heading">India's flavour:</span>
+           <br>
+        <span>Our dishes are blended with masterful <br>savoury spices</span>
+        </span>
+        <img src="Indian%20Cuisine.jpg" id="indian">
+    </div> 
+    
+    <br><br><br>
+
+    
+    
+    
+
+        <div class="left">
+    
+    <img src="Japanese%20Cuisine.jpg" id="japanese">
+        
+        <span class="txt ">
+        <span class="heading">Japanese Cuisine:</span>
+           <br>
+        <span>Delicious dining options from Sake to Sushi</span>
+        </span>
+    </div> 
+    
+    
+    <br><br><br>
+    
+    
+    <div class="right">
+
+    
+        
+        <span class="txt ">
+        <span class="heading">Desserts:</span>
+           <br>
+        <span>From Italian Tiramisu to Indian Gulab <br>Jamun</span>
+        </span>
+        <img src="Desserts.jpg" id="desserts">
+    </div> 
+    
+    <br><br>
+    
+    
+    
+    
+    
+    
+    
+    </body>
+    
+</html>

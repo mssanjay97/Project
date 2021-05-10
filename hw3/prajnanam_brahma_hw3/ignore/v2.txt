@@ -1,0 +1,194 @@
+<html>
+<head>
+    <title>Home | Menu</title>
+    </head>
+<style>
+    
+    #title{
+        color:darkblue;
+        margin-left:420px;
+
+        font-weight: bold;
+       white-space: nowrap;
+    overflow: hidden;
+    }
+    
+    #nav{
+        display:block;
+        width:1030px;
+        background-color: #dddddd;
+        
+        float:left;
+        
+         margin:0 !important;
+  padding:0 !important;
+    }
+    
+    .ele
+    {
+        display:inline-block;
+        padding:5px 8px;
+        font-size:18px;
+        text-decoration: none;
+    }
+
+    
+    
+    
+    
+       #home{
+        margin-left:100px;
+    }
+    
+    
+    
+    
+    
+  table
+    {
+        
+        margin-left:10px;
+        margin-top:5px;
+    }
+    
+    .fixed-bg {
+    margin:30px 100px 0px 100px;
+  background-image: url("Restaurant.jpg");
+ /* background-size: 900px 450px ;*/
+      background-size: 750px 500px;
+      background-position:90px 40px;  
+        
+          height: 350px;
+        width:700px;
+  background-attachment: fixed;
+  /*background-position: center;*/
+  background-repeat: no-repeat;
+        
+        
+     
+} 
+   
+    
+       .Relative{
+        
+        position:relative;
+        
+        
+      
+       
+       
+        
+    }
+    
+    .enjoy
+    {
+        position: absolute;
+  left: 265px;
+        top:115px;
+        font-size:42px;
+        color:white;
+        white-space: nowrap;
+    overflow: hidden;
+    }
+    
+    button
+    {position: absolute;
+        left: 540px;
+        top:215px;
+        background-color: lightcyan;
+        padding:5px 7px;
+        /*
+        outline-style: double;
+        #outline-width: 2px;
+        outline-color:black;
+        */
+        border-style:double;
+        border-color:black;
+        border-width:4px; 
+        cursor: pointer;
+    }
+    
+    </style>
+<body>
+    <h1 id="title">Trojan Café</h1>
+    
+
+    <div id="nav"> 
+    <a href="#home" id="home" class="ele">Home</a>
+  <a href="#italian" class="ele">Italian</a>
+  <a href="#indian" class="ele">Indian</a>
+  <a href="#japanese" class="ele">Japanese</a>
+  <a href="#desserts" class="ele">Desserts</a>
+  <a href="#about" class="ele">About</a>
+  <a href="#contact" class="ele">Contact</a>
+    
+    </div>
+
+     
+        
+            
+                
+    
+    <table>
+      <tr>
+        <td>
+          
+         <div class="Relative">
+             <div class="fixed-bg"></div>
+              <h1  class="enjoy"> Enjoy the Scenic View!!</h1><button>Book Your Reservation</button> 
+           </div>
+            
+          </td>
+        </tr>
+        <tr >
+            <td style="text-align:center;color:darkblue;;padding-top:20px;font-family:'Comic Sans MS'; "><h3 ><bold style="border-bottom: 3px double;">Explore Our Delicious Cuisines</bold></h3> </td>
+        </tr>
+        
+        <tr>
+        
+        <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+      <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+    
+ <br>
+    <br>
+      
+
+    </body>
+    
+</html>

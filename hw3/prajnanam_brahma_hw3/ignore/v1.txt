@@ -1,0 +1,210 @@
+<html>
+<head>
+    <title>Home | Menu</title>
+    </head>
+<style>
+    
+    #title{
+        color:darkblue;
+        margin-left:420px;
+        #margin-top:20px;
+        #font-size:30px;
+        font-weight: bold;
+        
+    }
+    
+    #nav{
+        display:block;
+        width:1030px;
+        background-color: #dddddd;
+        
+        float:left;
+        
+         margin:0 !important;
+  padding:0 !important;
+    }
+    
+    .ele
+    {
+        display:inline-block;
+        padding:5px 8px;
+        font-size:18px;
+        text-decoration: none;
+    }
+    /*
+   
+    ul {
+  list-style-type: none;
+ 
+  overflow: hidden;
+  background-color: #dddddd;
+}
+
+li {
+  float: left;
+    margin-left:5px;
+}
+
+li a {
+    
+  display: block;
+  padding: 7px 12px;
+  text-decoration: none;
+    font-size:21px;
+}
+    #home{
+        margin-left:80px;
+    }
+    
+
+    */
+    
+    /*
+    ul
+    {
+       list-style-type: none;
+  background-color: #dddddd; 
+    }
+    
+    li{
+    display:inline-block;
+    
+    font-size:22px;
+
+    height:30px;
+        
+        #margin-left: 8px;
+        padding:3px 12px;
+    }
+    
+ 
+ 
+    li a
+    {
+        text-decoration: none;
+    }
+    */
+    
+       #home{
+        margin-left:100px;
+    }
+    table
+    {
+        
+        margin-left:100px;
+        margin-top:40px;
+    }
+    
+    
+    .Relative{
+        
+        position:relative;
+        
+        top:0px;
+      
+       
+       
+        
+    }
+    
+    .fixed-bg {
+  background-image: url("Restaurant.jpg");
+  height: 350px;
+        width:790px;
+  background-attachment: fixed;
+  background-position:center;
+  background-repeat: no-repeat;
+  /*background-size: cover;*/
+        
+        background-size: 780px;
+
+} 
+   /* .Relative img
+    {
+         height:350px;
+        width:800px;
+    }*/
+    .enjoy
+    {
+        position: absolute;
+  left: 230px;
+        top:120px;
+        font-size:40px;
+        color:white;
+        
+    }
+    
+    button
+    {position: absolute;
+        left: 480px;
+        top:210px;
+        background-color: lightcyan;
+        padding:7px 12px;
+        /*
+        outline-style: double;
+        #outline-width: 2px;
+        outline-color:black;
+        */
+        border-style:double;
+        border-color:black;
+        border-width:4px; 
+        cursor: pointer;
+    }
+    
+    </style>
+<body>
+    <h1 id="title">Trojan Café</h1>
+    
+   <!-- 
+    <ul>
+  <li><a href="#home" id="home">Home</a></li>
+  <li><a href="#italians">Italian</a></li>
+  <li><a href="#indian">Indian</a></li>
+  <li><a href="#japanese">Japanese</a></li>
+  <li><a href="#desserts">Desserts</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+-->
+    <div id="nav"> 
+    <a href="#home" id="home" class="ele">Home</a>
+  <a href="#italian" class="ele">Italian</a>
+  <a href="#indian" class="ele">Indian</a>
+  <a href="#japanese" class="ele">Japanese</a>
+  <a href="#desserts" class="ele">Desserts</a>
+  <a href="#about" class="ele">About</a>
+  <a href="#contact" class="ele">Contact</a>
+    
+    </div>
+<br>
+    
+    <table>
+       <tr>
+           <td ><div class="Relative">
+               <!--<img src="Restaurant.jpg" >-->
+               <div class="fixed-bg"></div>
+
+               <h1  class="enjoy"> Enjoy the Scenic View!!</h1><button>Book Your Reservation</button> </div>
+           </td>
+        </tr>
+        <tr >
+            <td style="text-align:center;color:darkblue;;padding:20px;font-family:'Comic Sans MS'; "><h3 ><bold style="border-bottom: 3px double;">Explore Our Delicious Cuisines</bold></h3> </td>
+        </tr>
+    </table>
+    
+    <p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+<p>An element with position: relative; is positioned relative to its normal position:</p>
+
+    </body>
+    
+</html>
