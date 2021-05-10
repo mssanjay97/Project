@@ -1,0 +1,699 @@
+<html>
+<head>
+<title></title>
+    
+    <style>
+        body{
+            background-color: black;
+            margin-bottom:0;
+        }
+        #header{
+            
+  background-image: linear-gradient(to right, rgba(255,0,0,0),rgba(255,0,0,0),rgba(255,0,0,0), rgba(255,0,0,1));
+            width:100%;
+            font-family: sans-serif;
+            color:red;
+        }
+    
+    table#main
+        {
+            margin-left:150px;
+            //width:90%;
+            margin-bottom:0;
+            border-spacing: 0;
+            position:relative;
+        }
+        
+        #footer{
+            
+            text-align: right;
+            
+            background-color: red;
+            color:white;
+            padding:10px ;
+            font-style: italic;
+            font-size: 13px;
+            margin-left:10px;
+            
+        }
+        iframe{
+            border:none;
+        }
+        
+       .activemenu
+        {
+            border-bottom:1px solid white;
+            
+        }
+        .activemenu *{
+            color:red;
+        }
+        .inactive
+        {
+            display:none;
+        }
+        input.submit:hover,input.clear:hover{
+            background-color: red;
+        }
+        .submit{
+            margin-left:300px;
+            padding:7px 12px;
+            border: none;
+            border-radius:5px;background-color: black;color:white;
+        }
+        .clear{
+            margin-left:75px;
+            padding:7px 12px;
+            border: none;
+            border-radius:5px;background-color: black;color:white;
+            
+        }
+        #home:hover,#search:hover{
+            color:Red;
+        }
+        
+        .galleryholder{
+            width:125px;
+            
+        }
+        .gallery{
+            
+            width:inherit;
+            
+            height: 250px;
+            border-left:5px solid red;
+            padding-left:5px;
+            /*padding-right:10px;*/
+            
+        }
+        
+        table#result{
+            margin:0;
+            padding:0px;
+            color:white;
+            border-spacing:25px;
+        }
+        
+       
+    
+        .more
+        {
+            background-color:red;
+            padding:7px 12px;
+            color:white;
+        }
+        .rating
+        {
+            color:red;
+        }
+        .gallerycontent {
+            
+            
+            text-align: left;
+        }
+        .more{
+            
+            border-radius: 5px;
+            bordeR:none;
+            cursor: pointer;
+            
+        }
+        /*
+        select *{
+            displaY:block;
+            background-color: gray;
+            font-size15px;
+            padding:5px;
+            margin:5px;
+            
+            border-radius: 5px;
+        }*/
+        
+        
+    </style>
+    <script>
+    function chkform(){
+        /*alert(document.getElementById('category').value.length);*/
+        
+        var k=document.getElementById('keyword').value;
+        var c=document.getElementById('category').value;
+        if (k.length==0 || c.length==0){
+           alert('Please enter valid values.');
+            return false;
+            
+        }
+        
+    }
+        
+        function toggle()
+        {
+            
+           var home_th=document.getElementById("hometh")
+           home_th.classList.toggle("activemenu");
+           
+            document.getElementById("searchth").classList.toggle("activemenu");
+            
+            document.getElementById("a").classList.toggle("inactive");
+            document.getElementById("b").classList.toggle("inactive");
+            
+        }
+    </script>
+    
+    
+    
+    
+    
+<style>
+
+
+.movieSlides {display: none;}
+    .tvshowSlides {display: none;}
+/*img {vertical-align: middle;}*/
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.captiontext {
+   
+  color: white;
+  font-size: 25px;
+  padding: 20px 0px;
+  position: absolute;
+  bottom: 0px;
+  width:550px;
+  text-align: center;
+  background-color:rgba(0,0,0,0.7);
+}
+
+
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+</style>
+    
+    
+    
+    
+    
+    
+    
+ <script>
+    
+  function loadhome() {
+     
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      
+    if (this.readyState == 4 && this.status == 200) {
+      alert(response.text);
+    }
+  };
+  xhttp.open("GET", "http://127.0.0.1:5000/trendmovie", true);
+  xhttp.send();
+}  
+    
+ </script>   
+    
+</head>
+<body onload="loadhome();">
+<div id="header">
+    
+    <h2>THE MOVIE DB</h2>
+    </div>
+ <table id="main">
+    
+     
+     
+     <tr>
+         <th style="border-right :1px solid white;color:white;width:150px;
+            padding:20px 5px;cursor:pointer;" class="activemenu" onclick="toggle()" id="hometh"> <span id="home">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
+             &#10230;  </span></th>
+        
+         
+     </tr>
+     
+     
+     
+     <tr>
+     <th style="border-right:1px solid white;color:white;width:150px;
+            padding:20px 5px;cursor:pointer;" onclick="toggle()" id="searchth"><span id="search" >Search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &xrarr;
+         </span>
+         </th>
+     </tr>
+     
+     
+     
+     
+     <tr style="position:absolute;top:0px;left:158px;width:1030px;">
+     
+         <td style="border-right:1px solid white;color:white;"></td>
+         
+         <td rowspan="3" style="width:1040px;">
+             
+             
+             
+         <div style="min-height:900px;margin-left:10px;width:1010" id="a">
+             
+             
+             <h2 style="color:white;margin-left:325px;">Trending Movies</h2>
+             
+             
+             
+             
+             
+             
+             <div id="slideshow1" style="margin-left:150px;">
+             
+             <div class="slideshow-container">
+
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Text</div>
+</div>
+
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Two</div>
+</div>
+
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/tulips.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Three</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+ 
+</div>
+             
+             
+             </div>
+             
+             
+             
+           <br>
+             <h2 style="color:white;margin-left:300px;">TV Shows On-Air Today</h2>
+             
+                  <div id="slideshow2" style="margin-left:150px;">
+             
+             <div class="slideshow-container">
+
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Text</div>
+</div>
+
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Two</div>
+</div>
+
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/watch.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Three</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+ 
+</div>
+             
+             
+             </div>
+             
+             
+             
+             <script>
+var movie_slide_collIndex = 0;
+movie_slides();
+
+function movie_slides() {
+  var i;
+  var movie_slide_coll = document.getElementsByClassName("movieSlides");
+  for (i = 0; i < movie_slide_coll.length; i++) {
+    movie_slide_coll[i].style.display = "none";  
+  }
+  movie_slide_collIndex++;
+  if (movie_slide_collIndex > movie_slide_coll.length) {movie_slide_collIndex = 1}    
+  
+  movie_slide_coll[movie_slide_collIndex-1].style.display = "block";  
+  setTimeout(movie_slides, 3000); // Change image every 2 seconds
+}
+                 
+                 
+      
+                 
+                 
+                 var tv_slide_collIndex2 = 0;
+tv_slide_coll_slides2();
+
+function tv_slide_coll_slides2() {
+  var i;
+  var tv_slide_coll2 = document.getElementsByClassName("tvshowSlides");
+  for (i = 0; i < tv_slide_coll2.length; i++) {
+    tv_slide_coll2[i].style.display = "none";  
+  }
+  tv_slide_collIndex2++;
+  if (tv_slide_collIndex2 > tv_slide_coll2.length) {tv_slide_collIndex2 = 1}    
+  
+  tv_slide_coll2[tv_slide_collIndex2-1].style.display = "block";  
+  setTimeout(tv_slide_coll_slides2, 3000); // Change image every 2 seconds
+}
+                 
+                 
+</script>
+             
+             
+             
+             
+             
+             
+             
+             
+         </div>
+             
+             
+             
+        <div style="min-height:500px;max-width:800px; background-image: linear-gradient(red,black,black,black,black); padding:5px;margin-left:10px;" id="b" class="inactive">
+             
+            
+            <h3 style="margin-left:350px;color:white;margin-top:5px;">Search</h3>
+            <form onsubmit="return false;" >
+            <div style="margin-left:200px;color:white;">Keyword<span style="color:red;">*</span> &nbsp;<input id="keyword" style="border-radius:5px;" type="text" name="keyword" size="45"></div>
+                <br>
+                <div style="margin-left:200px;color:white;">Category<span style="color:red;">*</span> &nbsp;<select id="category" style="  border-radius:5px;" name="category">
+                    
+                    <option value=""></option>
+                    <option value="movie" >&nbsp;&nbsp;&nbsp;Movies</option>
+                    <option value="show" >&nbsp;&nbsp;&nbsp;TV Shows</option>
+                    <option value="both" >&nbsp;&nbsp;&nbsp;Movies and TV Shows</option>
+                    </select></div>
+                <br>
+                <input type="submit" value="Submit" style="" class="submit" onclick="return chkform();">
+                <input type="reset" value="Clear" style="" class="clear">
+            </form>
+            
+            
+            
+            
+            
+        <br><br><br>    
+       <table  style="width:inherit;" id="result">
+            
+            <tr>
+           <td class="galleryholder"><img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="gallery"></td>
+                
+                <td>
+                
+                <div class="gallerycontent">
+                    
+                    <h3 class="gallerytitle">Ttile</h3>
+                    <span class="year">2222</span>
+                    <span class="genre">random</span>
+                    <br>
+                    <span class="rating">* 4/5</span>
+                    <span class="votes">-100 votes</span>
+                    <br><br>
+                    <div class="desc">
+                    blah<br><br> blah<br><br> blah<br><br>blah<br><br>blaaaah
+                    </div>
+                    <br>
+                    <input type="button" value="Show More" class="more">
+                    <br>
+                    
+                </div>
+                    
+                </td>
+           </tr>
+           
+           
+           <tr>
+           <td class="galleryholder"><img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="gallery"></td>
+                
+                <td>
+                
+                <div class="gallerycontent">
+                    
+                    <h3 class="gallerytitle">Ttile</h3>
+                    <span class="year">2222</span>
+                    <span class="genre">random</span>
+                    <br>
+                    <span class="rating">* 4/5</span>
+                    <span class="votes">-100 votes</span>
+                    <br><br>
+                    <div class="desc">
+                    blah<br><br> blah<br><br> blah<br><br>blah<br><br>blaaaah
+                    </div>
+                    <br>
+                    <input type="button" value="Show More" class="more" id="myBtn">
+                    <br>
+                    
+                    
+                    
+                    
+                    
+                    
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <span class="modaltext">
+        
+      
+      
+      <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" style="" class="modalimage">
+        <div class="modaltitle"><h2>Doctor Strange</h2></div>
+        
+        <span class="year">2222</span>
+                    <span class="genre">random</span>
+                    <br><br>
+                    <span class="rating">* 4/5</span>
+                    <span class="votes">-100 votes</span>
+                    <br><br>
+        
+        
+        <span class="desc">
+        
+        blah<br><br>blah<br><br>blah<br><br>blah<br><br>
+        </span>
+        <h2>Cast</h2>
+        
+        <div class="modalgallery">
+        
+        <div >
+            
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="modalgalleryimage">
+        </div>
+        
+            <div class="actor">benedict</div>
+            <div class="character">doctor strange</div>
+            
+        </div>
+        
+        
+        <div class="modalgallery">
+        
+        <div >
+            
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="modalgalleryimage">
+        </div>
+        
+            <div class="actor">benedict</div>
+            <div class="character">doctor strange</div>
+            
+        </div>
+        
+        <br><br>
+        <h1 style="clear:left;">Reviews</h1>
+        
+        <span class="username">csk</span> on <span class="Reviewdata">1/1/1111</span>
+        <br><br>
+        <span class="reviewrating"> * <span class="reviewrating5">3/5</span>  </span>
+        
+        <br><br>
+        <div class="reviewtext">
+        
+        blah blah blah
+        </div>
+        
+        <hr>
+        
+      </span>
+      
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+                    
+ 
+<style>
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: lightgrey;
+  margin: auto;
+  padding: 50px;
+  border: 1px solid #888;
+  width: 80%;
+    overflow:auto;
+}
+                        
+                        .modaltext{
+                            color:black;
+                            overflow:auto;
+                        }
+    
+    .modalimage{
+        
+        
+        height:300px;
+        width:95%;
+    }
+    
+    .modalgallery{
+        width:20%;
+        margin:5px;
+        float:left;
+        border:1px solid yellow;
+    }
+
+    .modalgalleryimage{
+        width:100%;
+        height:200px;
+       
+    }
+    
+    
+    .reviewrating{
+        
+        color:red;
+    }
+    
+    
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                    
+                </td>
+           </tr>
+           
+           
+           
+        </table>
+            
+            
+            
+        </div>
+         
+             
+         <div id="footer">Designed and developed by Akansha, Pranav & Yash<br>
+            Powered by TMBD</div> 
+             
+         </td>
+         
+     </tr>
+     
+     
+   
+     
+ </table>   
+</body>
+</html>

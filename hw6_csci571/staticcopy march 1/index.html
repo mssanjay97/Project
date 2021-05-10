@@ -1,0 +1,1222 @@
+<html>
+<head>
+<title></title>
+    
+    <style>
+        body{
+            background-color: black;
+            margin-bottom:0;
+            font-family: sans-serif;
+        }
+        #header{
+            
+  background-image: linear-gradient(to right, rgba(255,0,0,0),rgba(255,0,0,0),rgba(255,0,0,0), rgba(255,0,0,1));
+            width:100%;
+            /*font-family: sans-serif;*/
+            color:red;
+        }
+    
+    table#main
+        {
+            margin-left:150px;
+            //width:90%;
+            margin-bottom:0;
+            border-spacing: 0;
+            position:relative;
+        }
+        
+        #footer{
+            
+            text-align: right;
+            
+            background-color: red;
+            color:white;
+            padding:10px ;
+            font-style: italic;
+            font-size: 13px;
+            margin-left:10px;
+            
+        }
+        iframe{
+            border:none;
+        }
+        
+       .activemenu
+        {
+            border-bottom:1px solid white;
+            
+        }
+        .activemenu *{
+            color:red;
+        }
+        .inactive
+        {
+            display:none;
+        }
+        input.submit:hover,input.clear:hover{
+            background-color: red;
+        }
+        .submit{
+            margin-left:300px;
+            padding:7px 12px;
+            border: none;
+            border-radius:5px;background-color: black;color:white;
+        }
+        .clear{
+            margin-left:75px;
+            padding:7px 12px;
+            border: none;
+            border-radius:5px;background-color: black;color:white;
+            
+        }
+        #home:hover,#search:hover{
+            color:Red;
+        }
+        
+        .galleryholder{
+            /*width:125px;*/
+            border-left:7px solid red;
+            padding:10px 0px;
+            
+        }
+       
+        .gallery{
+            
+            width:inherit;
+            
+           /* height: 250px;*/
+            
+            padding-left:10px;
+            /*padding-right:10px;*/
+            
+        }
+        
+        table#result{
+            margin:0;
+            padding:0px;
+            color:white;
+            border-spacing:25px;
+        }
+        
+       
+    
+        .more
+        {
+            background-color:red;
+            padding:7px 12px;
+            color:white;
+            border-radius: 5px;
+            bordeR:none;
+            cursor: pointer;
+        }
+        .rating
+        {
+            color:red;
+            font-size:smaller;
+        }
+        .gallerycontent {
+            
+            
+            text-align: left;
+        }
+        .more:hover{
+            
+            background-color:pink;
+            
+        }
+        
+        .votes{
+            
+              vertical-align: text-top;
+  font-size: smaller;
+        }
+        
+        /*
+        select *{
+            displaY:block;
+            background-color: gray;
+            font-size15px;
+            padding:5px;
+            margin:5px;
+            
+            border-radius: 5px;
+        }*/
+        
+        
+    </style>
+    <script>
+        function clearcont(){
+            
+            const  div = document.getElementById('result');
+                div.innerHTML="";
+            
+        }
+    function chkform(){
+        /*alert(document.getElementById('category').value.length);*/
+        
+        var k=document.getElementById('keyword').value;
+        var c=document.getElementById('category').value;
+        if (k.length==0 || c.length==0){
+           alert('Please enter valid values.');
+            return false;
+            
+        }
+        
+        
+        if(c=="movie"){
+                                  
+            var xhttp = new XMLHttpRequest();
+      
+            xhttp.onreadystatechange = function() {
+     
+            if (this.readyState == 4 && this.status == 200) {
+                        
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+                
+                 const  div = document.getElementById('result');
+                div.innerHTML="";
+                if(content.res.length==0){
+                    div.innerHTML='<div style="width:800px;;text-align:center;">No results found.</div>';
+                }
+                else
+                    {
+                        div.innerHTML="Showing results...";
+                    }
+        for (i=0;i<content.res.length;i++)
+            {
+         
+             div.insertAdjacentHTML('beforeend','<tr><td class="galleryholder"><img src="'+content.res[i].poster_path+'" class="gallery"></td><td> \
+                                    <div class="gallerycontent"><h3 class="gallerytitle">'+content.res[i].title+'</h3><span \ class="year">'+content.res[i].release_date+' | </span> \
+                    <span class="genre">'+content.res[i].genre_ids+'</span><br><span class="rating">&#9733; '+content.res[i].vote_average+'/5</span> \
+                                    <span class="votes">'+content.res[i].vote_count+' votes</span><br><br> \
+                                    <div  class="desc">'+content.res[i].overview+'</div><br><input type="button" value="Show More" \
+                                    class="more" onclick="popupmoviemodal(this.id);" id='+content.res[i].id +'><br></div></td></tr>');    
+            }
+                    
+                }
+                                    
+            };
+            
+            xhttp.open("GET", "http://127.0.0.1:5000/searchmovie/"+k, true);
+            xhttp.send();
+  
+            }
+        
+      
+            else if(c=="tv"){
+                                  
+            var xhttp = new XMLHttpRequest();
+      
+            xhttp.onreadystatechange = function() {
+     
+            if (this.readyState == 4 && this.status == 200) {
+                        
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+                
+                 const  div = document.getElementById('result');
+                div.innerHTML="";
+                if(content.res.length==0){
+                    div.innerHTML='<div style="width:800px;;text-align:center;">No results found.</div>';
+                }
+                 else
+                    {
+                        div.innerHTML="Showing results...";
+                    }
+
+        for (i=0;i<content.res.length;i++)
+            {
+         
+             div.insertAdjacentHTML('beforeend','<tr><td class="galleryholder"><img src="'+content.res[i].poster_path+'" class="gallery"></td><td> \
+                                    <div class="gallerycontent"><h3 class="gallerytitle">'+content.res[i].name+'</h3><span \ class="year">'+content.res[i].first_air_date+' | </span> \
+                    <span class="genre">'+content.res[i].genre_ids+'</span><br><span class="rating">&#9733; '+content.res[i].vote_average+'/5</span> \
+                                    <span class="votes">'+content.res[i].vote_count+' votes</span><br><br> \
+                                    <div  class="desc">'+content.res[i].overview+'</div><br><input type="button" value="Show More" \
+                                    class="more" onclick="popuptvmodal(this.id);" id='+content.res[i].id +'><br></div></td></tr>');    
+            }
+                    
+                }
+                                    
+            };
+            
+            xhttp.open("GET", "http://127.0.0.1:5000/searchtv/"+k, true);
+            xhttp.send();
+            }
+        
+        
+        else {
+                                  
+            var xhttp = new XMLHttpRequest();
+      
+            xhttp.onreadystatechange = function() {
+     
+            if (this.readyState == 4 && this.status == 200) {
+                        
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+                
+                 const  div = document.getElementById('result');
+                div.innerHTML="";
+                    if(content.res.length==0){
+                    div.innerHTML='<div style="width:800px;;text-align:center;">No results found.</div>';
+                }
+                 else
+                    {
+                        div.innerHTML="Showing results...";
+                    }
+        for (i=0;i<content.res.length;i++)
+            {
+                if(content.res[i].media_type=='movie')
+                    {
+                        
+                        div.insertAdjacentHTML('beforeend','<tr><td class="galleryholder"><img src="'+content.res[i].poster_path+'" class="gallery"></td><td> \
+                                    <div class="gallerycontent"><h3 class="gallerytitle">'+content.res[i].title+'</h3><span \ class="year">'+content.res[i].release_date+' | </span> \
+                    <span class="genre">'+content.res[i].genre_ids+'</span><br><span class="rating">&#9733; '+content.res[i].vote_average+'/5</span> \
+                                    <span class="votes">'+content.res[i].vote_count+' votes</span><br><br> \
+                                    <div  class="desc">'+content.res[i].overview+'</div><br><input type="button" value="Show More" \
+                                    class="more" onclick="popupmoviemodal(this.id);" id='+content.res[i].id +'><br></div></td></tr>');  
+                        
+                        
+                    }
+         else if(content.res[i].media_type=='tv')
+             {div.insertAdjacentHTML('beforeend','<tr><td class="galleryholder"><img src="'+content.res[i].poster_path+'" class="gallery"></td><td> \
+                                    <div class="gallerycontent"><h3 class="gallerytitle">'+content.res[i].name+'</h3><span \ class="year">'+content.res[i].first_air_date+' | </span> \
+                    <span class="genre">'+content.res[i].genre_ids+'</span><br><span class="rating">&#9733; '+content.res[i].vote_average+'/5</span> \
+                                    <span class="votes">'+content.res[i].vote_count+' votes</span><br><br> \
+                                    <div  class="desc">'+content.res[i].overview+'</div><br><input type="button" value="Show More" \
+                                    class="more" onclick="popuptvmodal(this.id);" id='+content.res[i].id +'><br></div></td></tr>'); }    
+            }
+                    
+                }
+                                    
+            };
+            
+            xhttp.open("GET", "http://127.0.0.1:5000/searchmulti/"+k, true);
+            xhttp.send();
+            }
+
+        
+        
+        
+    }
+        
+        function toggle(id)
+        {
+            var curr=document.getElementById(id);
+            if(curr.classList.contains("activemenu")){
+                return true;
+            }
+           var home_th=document.getElementById("hometh");
+           home_th.classList.toggle("activemenu");
+           
+            document.getElementById("searchth").classList.toggle("activemenu");
+            
+            document.getElementById("a").classList.toggle("inactive");
+            document.getElementById("b").classList.toggle("inactive");
+            
+        }
+    </script>
+    
+    
+    
+    
+    
+<style>
+
+
+.movieSlides {display: none;}
+    .tvshowSlides {display: none;}
+/*img {vertical-align: middle;}*/
+
+/* Slideshow container */
+.slideshow-container {
+  width: 780px;
+  position: relative;
+  margin: auto;
+    margin-left:0px;
+    
+}
+    .slideshow-container img{
+       
+    }
+
+/* Caption text */
+.captiontext {
+   
+  color: white;
+  font-size: 25px;
+  padding: 20px 0px;
+  position: absolute;
+  bottom: 0px;
+
+    
+    width:780px;
+    
+    
+    
+  text-align: center;
+  background-color:rgba(0,0,0,0.7);
+}
+
+
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+    
+    
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+    
+    
+    
+
+    
+
+</style>
+    
+    
+    
+    
+    
+    
+    
+ <script>
+    
+  function loadtrendmovie() {
+     
+  var xhttp = new XMLHttpRequest();
+      
+  xhttp.onreadystatechange = function() {
+     
+    if (this.readyState == 4 && this.status == 200) {
+       /* alert("success");*/
+        
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+        
+        document.getElementById("firstmovieslideshowimage").setAttribute('src',content.res[0].backdrop_path);
+        
+         document.getElementById("firstmovieslideshowtext").innerHTML=content.res[0].title+' ('+content.res[0].release_date+')';
+        
+        /*alert(content.res[0].title);*/
+        for (i=1;i<content.res.length;i++)
+            {
+      const  div = document.getElementById('slideshow1container');
+               /* div.innerHTML+='<div class="movieSlides fade"><img src='+content.res[i].backdrop_path+'><div class="captiontext">'+content.res[i].title+' ('+content.res[i].release_date+')'+'</div></div>';
+               */
+             div.insertAdjacentHTML('beforeend','<div class="movieSlides fade"><img src='+content.res[i].backdrop_path+'><div class="captiontext">'+content.res[i].title+' ('+content.res[i].release_date+')'+'</div></div>');
+       
+/* div.insertAdjacentHTML('afterbegin','' );*/
+        
+                
+        
+    
+  }
+                                    
+    }
+  
+};
+      
+      xhttp.open("GET", "http://127.0.0.1:5000/trendmovie", true);
+  xhttp.send();
+}
+   loadtrendmovie();
+     
+     
+     
+     
+     
+     
+     
+     
+     
+       function loadtrendshow() {
+     
+  var xhttp = new XMLHttpRequest();
+      
+  xhttp.onreadystatechange = function() {
+     
+    if (this.readyState == 4 && this.status == 200) {
+       
+        
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+        
+        document.getElementById("firstshowslideshowimage").setAttribute('src',content.res[0].backdrop_path);
+        
+         document.getElementById("firstshowslideshowtext").innerHTML=content.res[0].name+' ('+content.res[0].first_air_date+')';
+        /*alert(content.res[0].title);*/
+        for (i=1;i<content.res.length;i++)
+            {
+      const  div = document.getElementById('slideshow2container');
+               /* div.innerHTML+='<div class="movieSlides fade"><img src='+content.res[i].backdrop_path+'><div class="captiontext">'+content.res[i].title+' ('+content.res[i].release_date+')'+'</div></div>';
+               */
+             div.insertAdjacentHTML('beforeend','<div class="tvshowSlides fade"><img src='+content.res[i].backdrop_path+'><div class="captiontext">'+content.res[i].name+' ('+content.res[i].first_air_date+')'+'</div></div>');
+       
+/* div.insertAdjacentHTML('afterbegin','' );*/
+        
+                
+        
+    
+  }
+                                    
+    }
+  
+};
+      
+      xhttp.open("GET", "http://127.0.0.1:5000/trendshow", true);
+  xhttp.send();
+}
+   loadtrendshow(); 
+ </script>   
+    
+</head>
+    
+    
+<body >
+<div id="header">
+    
+    <h2>THE MOVIE DB</h2>
+    </div>
+ <table id="main">
+    
+     
+     
+     <tr>
+         <th style="border-right :1px solid white;color:white;width:150px;
+            padding:20px 5px;cursor:pointer;" class="activemenu" onclick="toggle(this.id)" id="hometh"> <span id="home">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
+             &#10230;  </span></th>
+        
+         
+     </tr>
+     
+     
+     
+     <tr>
+     <th style="border-right:1px solid white;color:white;width:150px;
+            padding:20px 5px;cursor:pointer;" onclick="toggle(this.id)" id="searchth"><span id="search" >Search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &xrarr;
+         </span>
+         </th>
+     </tr>
+     
+     
+     
+     
+     <tr style="position:absolute;top:0px;left:158px;width:1030px;">
+     
+         <td style="border-right:1px solid white;color:white;"></td>
+         
+         <td rowspan="3" style="width:1040px;">
+             
+             
+             
+         <div style="min-height:900px;margin-left:10px;width:1010" id="a">
+             
+             
+             <div style="color:white;margin-left:400px;font-size:25px;font-family: sans-serif;">Trending Movies</div>
+             
+             
+             <br>
+             
+             
+             
+             <div id="slideshow1" style="margin-left:100px;">
+             
+             <div class="slideshow-container" id="slideshow1container">
+                 
+              
+                 <div class="movieSlides fade" >
+  <img src="" id="firstmovieslideshowimage">
+  <div class="captiontext" id="firstmovieslideshowtext"></div>
+</div>
+                 
+
+<!--
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Text</div>
+</div>
+
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Two</div>
+</div>
+
+<div class="movieSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/tulips.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Three</div>
+</div>
+-->
+     
+                
+                 
+</div>
+<br>
+
+             
+             
+             </div>
+             
+             
+             
+           <br><br><br>
+             <div style="color:white;margin-left:350px;font-size:25px;">TV Shows On-Air Today</div>
+             
+             <br>
+                  <div id="slideshow2" style="margin-left:100px;">
+             
+             <div class="slideshow-container" id="slideshow2container">
+                 
+                 
+                                <div class="tvshowSlides fade" >
+  <img src="" id="firstshowslideshowimage">
+  <div class="captiontext" id="firstshowslideshowtext"></div>
+</div>
+<!--
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/boat.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Text</div>
+</div>
+
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/pool.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Two</div>
+</div>
+
+<div class="tvshowSlides fade">
+  <img src="https://homepages.cae.wisc.edu/~ece533/images/watch.png" style="width:550px;height:300px">
+  <div class="captiontext">Caption Three</div>
+</div>
+-->
+</div>
+<br>
+
+   
+             
+             </div>
+             
+             
+             
+             <script>
+var movie_slide_collIndex = 0;
+movie_slides();
+
+function movie_slides() {
+  var i;
+  var movie_slide_coll = document.getElementsByClassName("movieSlides");
+  for (i = 0; i < movie_slide_coll.length; i++) {
+    movie_slide_coll[i].style.display = "none";  
+  }
+  movie_slide_collIndex++;
+  if (movie_slide_collIndex > movie_slide_coll.length) {movie_slide_collIndex = 1}    
+  
+  movie_slide_coll[movie_slide_collIndex-1].style.display = "block";  
+  setTimeout(movie_slides, 4000); // Change image every 2 seconds
+}
+                 
+                 
+      
+                 
+                 
+                 var tv_slide_collIndex2 = 0;
+tv_slide_coll_slides2();
+
+function tv_slide_coll_slides2() {
+  var i;
+  var tv_slide_coll2 = document.getElementsByClassName("tvshowSlides");
+  for (i = 0; i < tv_slide_coll2.length; i++) {
+    tv_slide_coll2[i].style.display = "none";  
+  }
+  tv_slide_collIndex2++;
+  if (tv_slide_collIndex2 > tv_slide_coll2.length) {tv_slide_collIndex2 = 1}    
+  
+  tv_slide_coll2[tv_slide_collIndex2-1].style.display = "block";  
+  setTimeout(tv_slide_coll_slides2, 4000); // Change image every 2 seconds
+}
+                 
+                 
+</script>
+             
+             
+             
+             
+            <br><br><br><br><br><br>
+             
+             
+             
+         </div>
+             
+             
+             
+        <div style="min-height:500px;max-width:800px;  padding-left:5px;margin-left:10px;" id="b" class="inactive">
+             
+            <div style="background-image: linear-gradient(rgba(255,0,0,1), rgba(255,0,0,0.9),rgba(255,0,0,0.7),rgba(255,0,0,0.5),rgba(255,0,0,0.3),rgba(255,0,0,0));">
+            <h2 style="margin-left:350px;color:white;padding-top:20px;">Search</h2>
+            <form onsubmit="return false;" >
+            <div style="margin-left:200px;color:white;">Keyword<span style="color:red;">*</span> &nbsp;<input id="keyword" style="border-radius:5px;" type="text" name="keyword" size="45"></div>
+                <br>
+                <div style="margin-left:200px;color:white;">Category<span style="color:red;">*</span> &nbsp;<select id="category" style="  border-radius:5px;" name="category">
+                    
+                    <option value=""></option>
+                    <option value="movie" >&nbsp;&nbsp;&nbsp;Movies</option>
+                    <option value="tv" >&nbsp;&nbsp;&nbsp;TV Shows</option>
+                    <option value="both" >&nbsp;&nbsp;&nbsp;Movies and TV Shows</option>
+                    </select></div>
+                <br>
+                <input type="submit" value="Submit" style="" class="submit" onclick="return chkform();">
+                <input type="reset" value="Clear" style="" class="clear" onclick="clearcont();">
+            </form>
+            <br> 
+            </div>
+            
+            <br>
+            
+        <br>   
+       <table  style="width:inherit;" id="result">
+        <!--    
+            <tr>
+           <td class="galleryholder"><img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="gallery"></td>
+                
+                <td>
+                
+                <div class="gallerycontent">
+                    
+                    <h3 class="gallerytitle">Ttile</h3>
+                    <span class="year">2222</span>
+                    <span class="genre">random</span>
+                    <br>
+                    <span class="rating">* 4/5</span>
+                    <span class="votes">-100 votes</span>
+                    <br><br>
+                    <div class="desc">
+                    blah<br><br> blah<br><br> blah<br><br>blah<br><br>blaaaah
+                    </div>
+                    <br>
+                    <input type="button" value="Show More" class="more" onclick="popupmodal();">
+                    <br>
+                    
+                </div>
+                    
+                </td>
+           </tr>
+          --> 
+
+          
+           
+        </table>
+            
+           <br><br><br> 
+            
+        </div>
+         
+             
+             
+                                 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closemodal();">&times;</span>
+    <span id="modaltext">
+        
+      
+      <!--
+     <div class="modalimage"><img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" style="" ></div> 
+        <div class="modaltitle"><h2>Doctor Strange</h2></div>
+        <br>
+        <span class="year">2222</span>
+                    <span class="genre">random</span>
+                    <br><br>
+                    <span class="rating">* 4/5</span>
+                    <span class="votes">-100 votes</span>
+                    <br><br>
+        
+        
+        <div class="desc">
+        
+        blah<br><br>blah<br><br>blah<br><br>blah<br><br>
+        </div>
+        
+        Spoken language: <span class="lang"> English</span>
+        
+        <h2>Cast</h2>
+        
+     
+        
+        <div class="modalgallery">
+        
+        <div >
+            
+            <img src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" class="modalgalleryimage">
+        </div>
+        
+            <div class="actor">benedict</div>
+            <span style="margin:auto;">AS</span>
+            <div class="character">doctor strange/stephen strangee</div>
+            
+        </div>
+        
+        
+        <h1 style="clear:left;padding-top:50px;">Reviews</h1>
+        
+        <span class="username" ><b>csk</b></span> on <span class="reviewdate">1/1/1111</span>
+        <br><br>
+        <span class="rating">* 4/5</span>
+        
+        <br><br>
+        <div class="reviewtext">
+        
+        blah blah blah
+        </div>
+        
+        <hr>
+        
+        
+        -->
+      </span>
+      
+  </div>
+
+</div>
+
+             
+             
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+    /*
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+*/
+    
+function popupmoviemodal(id){
+
+
+    
+  
+                var xhttp = new XMLHttpRequest();
+      
+            xhttp.onreadystatechange = function() {
+     
+            if (this.readyState == 4 && this.status == 200) {
+                     
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+                
+                 const  div = document.getElementById('modaltext');
+
+        for (i=0;i<content.res.length;i++)
+            {
+                
+                cast_txt="";
+                
+                for (var j=0;j<content.res[i].cast.length;j++)
+                    {
+
+                        cast_txt+='        <div class="modalgallery">  '+
+        
+     '    <div >  '+
+            
+    '          <img src="'+ content.res[i].cast[j].profile_path +'" class="modalgalleryimage">  '+
+     '    </div>  '+
+        
+       '    <br> <div class="actor">'+ content.res[i].cast[j].name +'</div>  '+
+       '     <span style="margin:auto;">AS</span>  '+
+       '      <div class="character">'+ content.res[i].cast[j].character +'</div>  '+
+            
+     '    </div> ';
+        
+                    }
+                
+                
+                review_txt=""
+                
+                
+                for(var j=0;j<content.res[i].reviews.length;j++)
+                    {rating_txt=""
+                     if(content.res[i].reviews[j].rating!="")
+                        {
+                        rating_txt='  <span class="reviewrating">&#9733; '+ content.res[i].reviews[j].rating +'/5</span> ';
+                        }
+                        
+                        review_txt+= '  <span class="username" ><br><b>'+ content.res[i].reviews[j].username +'</b></span> on <span class="reviewdate">'+ content.res[i].reviews[j].created_at +'</span> '+
+         '  <br><br> '+
+         
+                      rating_txt+      
+        
+         '  <br> '+
+         '  <div class="reviewtext"> '+
+        
+         content.res[i].reviews[j].content +
+         '  </div> '+
+        
+         '  <hr>';
+                        
+                        
+                    }
+               
+         div.insertAdjacentHTML('beforeend','<div class="modalimage"><img src="'+ content.res[i].backdrop_path +'" style=""><br><br>'+
+
+   ' </div>  '+
+       '<div class="modaltitle">'+ content.res[i].title +'<a href="https://www.themoviedb.org/movie/'+id+'" target="_blank">&nbsp;&nbsp;&#9432;</a></div> '+
+        '<br>  '+
+       ' <span class="year">'+ content.res[i].release_date +'</span> | '+
+        '            <span class="genre">'+ content.res[i].genres +'</span> '+
+         '           <br><br>  '+
+          '          <span class="rating">&#9733; '+ content.res[i].vote_average +'/5</span>  '+
+           '         <span class="votes">'+ content.res[i].vote_count +' votes</span> '+
+            '        <br><br> '+
+        
+        
+        '<div class="popupdesc"> '+
+        
+    '   '+ content.res[i].overview +'<br><br> '+
+     '   </div>  '+
+        
+      ' <i> Spoken language: <span class="lang"> '+ content.res[i].spoken_languages +'</span> </i> '+
+        
+       ' <br><br><h2>Cast</h2>  '+
+        
+     
+                                cast_txt+
+        
+       '    <h2 style="clear:left;padding-top:50px;">Reviews</h2> '+
+        
+        review_txt);   
+                
+                
+            }
+                    
+            }
+                                    
+            };
+            
+            xhttp.open("GET", "http://127.0.0.1:5000/moremovie/"+id, true);
+            xhttp.send();
+      
+    
+  modal.style.display = "block";
+
+}
+
+ 
+    
+    
+    function popuptvmodal(id){
+
+
+    
+  
+                var xhttp = new XMLHttpRequest();
+      
+            xhttp.onreadystatechange = function() {
+     
+            if (this.readyState == 4 && this.status == 200) {
+                     
+        var content=JSON.parse(this.responseText);
+        
+        var i;
+                
+                 const  div = document.getElementById('modaltext');
+
+        for (i=0;i<content.res.length;i++)
+            {
+                
+                cast_txt="";
+                
+                for (var j=0;j<content.res[i].cast.length;j++)
+                    {
+
+                        cast_txt+='        <div class="modalgallery">  '+
+        
+     '    <div >  '+
+            
+    '          <img src="'+ content.res[i].cast[j].profile_path +'" class="modalgalleryimage">  '+
+     '    </div>  '+
+        
+       '    <br> <div class="actor">'+ content.res[i].cast[j].name +'</div>  '+
+       '     <span style="margin:auto;">AS</span>  '+
+       '      <div class="character">'+ content.res[i].cast[j].character +'</div>  '+
+            
+     '    </div> ';
+        
+                    }
+                
+                
+                review_txt=""
+                
+                
+                for(var j=0;j<content.res[i].reviews.length;j++)
+                    {
+                        rating_txt=""
+                     if(content.res[i].reviews[j].rating!="")
+                        {
+                        rating_txt='  <span class="reviewrating">&#9733; '+ content.res[i].reviews[j].rating +'/5</span> ';
+                        }
+                        
+                        review_txt+= '  <span class="username" ><br><b>'+ content.res[i].reviews[j].username +'</b></span> on <span class="reviewdate">'+ content.res[i].reviews[j].created_at +'</span> '+
+         '  <br><br> '+
+         rating_txt +
+        
+         '  <br> '+
+         '  <div class="reviewtext"> '+
+        
+         content.res[i].reviews[j].content +
+         '  </div> '+
+        
+         '  <hr>';
+                        
+                        
+                    }
+               
+         div.insertAdjacentHTML('beforeend','<div class="modalimage"><img src="'+ content.res[i].backdrop_path +'" style=""><br><br>'+
+
+   ' </div>  '+
+       ' <div class="modaltitle">'+ content.res[i].name +'<a href="https://www.themoviedb.org/tv/'+id+'" target="_blank">&nbsp;&nbsp;&#9432;</a> </div> '+
+        '<br>  '+
+       ' <span class="year">'+ content.res[i].first_air_date +'</span> | '+
+        '            <span class="genre">'+ content.res[i].genres +'</span> '+
+         '           <br><br>  '+
+          '          <span class="rating">&#9733; '+ content.res[i].vote_average +'/5</span>  '+
+           '         <span class="votes">'+ content.res[i].vote_count +' votes</span> '+
+            '        <br><br> '+
+        
+        
+        '<div class="popupdesc"> '+
+        
+    '   '+ content.res[i].overview +'<br><br> '+
+     '   </div>  '+
+        
+      ' <i> Spoken language: <span class="lang"> '+ content.res[i].spoken_languages +'</span> </i>'+
+        
+       '<br><br> <h2>Cast</h2>  '+
+        
+     
+                                cast_txt+
+        
+       '    <h2 style="clear:left;padding-top:50px;">Reviews</h2> '+
+        
+        review_txt);   
+                
+                
+            }
+                    
+            }
+                                    
+            };
+            
+            xhttp.open("GET", "http://127.0.0.1:5000/moretv/"+id, true);
+            xhttp.send();
+      
+    
+  modal.style.display = "block";
+
+}
+/*
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+*/
+
+function closemodal(){
+      const  div = document.getElementById('modaltext');
+div.innerHTML="";
+           modal.style.display = "none";
+
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    
+      const  div = document.getElementById('modaltext');
+                div.innerHTML="";
+      modal.style.display = "none";
+  }
+}
+</script>
+                    
+ 
+<style>
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: lightgrey;
+  margin: auto;
+  padding: 30px;
+    padding-top:15px;
+  border: 1px solid #888;
+  width: 820px;
+    overflow:auto;
+    /*font-family:'Open Sans', sans-serif;*/
+    
+}
+    
+    .actor{
+        font-weight: bold;
+    }
+    a{
+    text-decoration:none;
+    color:rgb(176,35,31);
+    
+    font-size: 20px;
+    }
+                        .modaltitle{
+        
+                        font-size: 25px;
+                        }
+    
+    
+                        #modaltext{
+                            color:black;
+                            overflow:auto;
+                           width:780px;
+                            display:inline-block;
+                        }
+    
+    .reviewtext,.desc{
+        
+        display: -webkit-box;
+max-width: inherit;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+    }
+    
+    .character,.actor{
+          white-space: nowrap;
+        width:185px;
+       overflow:hidden;
+        text-overflow: ellipsis;
+    }
+    hr{
+        width:80%;
+        margin-top:12px;
+    }
+    
+    .modalimage{
+        
+        
+        /*height:300px;*/
+        float:left;
+        margin: auto;
+        width:790px;
+    }
+    
+    .modalimage img
+    {
+        width:780px;
+    }
+    
+   
+    .modalgallery{
+        width:185px;
+        margin:5px;
+        margin-left:0;
+        display:inline-block;
+        
+        text-align: center;
+    }
+
+    .modalgalleryimage{
+        width:185px;
+        /*height:200px;*/
+       
+    }
+    
+    
+    .reviewrating{
+        
+        color:red;
+    }
+    
+    
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+                    
+                    
+                    
+                    
+      
+             
+         <div id="footer">Designed and developed by Akansha, Pranav & Yash<br>
+            Powered by TMBD</div> 
+             
+         </td>
+         
+     </tr>
+     
+     
+   
+     
+ </table>   
+</body>
+</html>
